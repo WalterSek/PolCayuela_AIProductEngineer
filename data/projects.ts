@@ -285,7 +285,7 @@ PxlMorph supports 50+ artistic styles across multiple categories. Each style inc
     links: {
       demo: "https://pxlmorph.vercel.app"
     },
-    imageUrl: "https://picsum.photos/seed/pxlmorph/800/450",
+    imageUrl: "/pxlmorph-cover.jpg",
     status: "Production",
     featured: true
   }
