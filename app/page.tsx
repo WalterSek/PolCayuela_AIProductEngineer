@@ -1,4 +1,4 @@
-lopeimport Link from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone } from 'lucide-react';
 import { projects } from '@/data/projects';
@@ -15,26 +15,15 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <header className="w-full max-w-5xl mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
         <FadeIn className="max-w-4xl">
-          <div className="flex flex-col md:flex-row gap-8 items-start md:items-center mb-8">
-            <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg shrink-0 bg-zinc-100">
-              <Image
-                src="https://ui-avatars.com/api/?name=Pol+Cayuela&background=0D8ABC&color=fff&size=256"
-                alt="Pol Cayuela"
-                fill
-                className="object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div>
-              <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
-                Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
-                <span className="text-zinc-500">AI Product Developer.</span>
-              </h1>
-              <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-2xl">
-                Full-stack developer from Barcelona with a deep focus on AI integration. 
-                I craft production-ready, intelligent applications by leveraging modern AI workflows to build scalable, end-to-end solutions.
-              </p>
-            </div>
+          <div className="mb-8">
+            <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
+              Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
+              <span className="text-zinc-500">AI Product Developer.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-2xl">
+              Full-stack developer from Barcelona with a deep focus on AI integration. 
+              I craft production-ready, intelligent applications by leveraging modern AI workflows to build scalable, end-to-end solutions.
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-4 mb-12">
@@ -105,7 +94,7 @@ export default function Home() {
                       )}
                     </div>
                     <p className="text-sm font-medium text-zinc-900 mb-2">{project.tagline}</p>
-                    <p className="text-sm text-zinc-600 mb-6 line-clamp-2">{project.description}</p>
+                    <p className="text-sm text-zinc-600 mb-6">{project.description}</p>
                     
                     <div className="mt-auto">
                       <div className="flex flex-wrap gap-2 mb-6">
