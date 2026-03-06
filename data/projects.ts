@@ -185,7 +185,7 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
 - ✅ Supabase backend with RLS security
 - 🔄  Voice assistant (Gemini Live Audio) - in development
 `,
-    stack: ["React Native", "Expo", "Node.js", "Supabase", "Cloudflare R2", "Gemini API", "RevenueCat"],
+    stack: ["TypeScript", "React Native", "Expo", "Node.js", "Express", "Supabase", "Cloudflare R2", "Gemini API", "Gemini Live API", "LiveKit", "Cloud Run", "RevenueCat", "Google Play Store"],
     highlights: [
       "Extracts recipes instantly from any URL, cookbook scan, or social media post using Gemini Vision.",
       "Smart pantry and grocery list manager with AI ingredient parsing and automatic merging.",
@@ -204,7 +204,7 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
     name: "InfiniteVisuals",
     tagline: "AI Brand Content Engine",
     description: "An AI-powered brand content engine designed to generate consistent, high-quality visual assets for brands. Full details coming soon.",
-    stack: ["Next.js", "React", "Supabase", "Cloudflare R2", "Vercel"],
+    stack: ["TypeScript", "Next.js", "React", "Supabase", "Cloudflare R2", "Vercel", "Gemini API", "Stripe"],
     highlights: [
       "AI-driven brand asset generation.",
       "Consistent visual identity management."
@@ -221,7 +221,7 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
     name: "CryptoEdge Insights",
     tagline: "TA crypto analysis to spot better opportunities",
     description: "Advanced technical analysis platform for cryptocurrency markets to spot better trading opportunities. Full details coming soon.",
-    stack: ["Next.js", "React", "Supabase", "Cloudflare R2", "Vercel"],
+    stack: ["TypeScript", "Next.js", "React", "Supabase", "Cloudflare R2", "Vercel", "Gemini API", "CoinGecko API", "TradingView API", "altFINS API", "Binance API"],
     highlights: [
       "Real-time technical analysis indicators.",
       "Secure user authentication and data storage."
@@ -276,7 +276,7 @@ PxlMorph supports 50+ artistic styles across multiple categories. Each style inc
 - Great for quick edits and experiments.
 - **Example Use Case**: *"Add a golden sunset background and make the colors more vibrant"*
 `,
-    stack: ["Next.js", "React", "TypeScript", "Supabase", "Cloudflare R2", "OpenAI API"],
+    stack: ["TypeScript", "Next.js", "React", "Supabase", "Cloudflare R2", "Vercel", "OpenAI API"],
     highlights: [
       "Supports over 50 distinct artistic styles with optimized prompting.",
       "Dual-mode functionality: predefined style transfer and direct natural language editing.",

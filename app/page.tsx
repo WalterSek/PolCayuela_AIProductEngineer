@@ -48,7 +48,7 @@ export default function Home() {
           <div className="pt-8 border-t border-zinc-200">
             <p className="text-sm font-medium text-zinc-500 mb-4 uppercase tracking-wider">Core Technologies</p>
             <div className="flex flex-wrap gap-2">
-              {['TypeScript', 'JavaScript', 'Python', 'React', 'Next.js', 'React Native', 'Node.js', 'Tailwind CSS', 'Zustand', 'TanStack Query', 'Supabase', 'Cloudflare', 'Vercel', 'Google Cloud', 'LLM Integration', 'Agentic AI', 'AI Automations', 'Git'].map(skill => (
+              {['TypeScript', 'JavaScript', 'Python', 'React', 'Next.js', 'React Native', 'Node.js', 'Tailwind CSS', 'Zustand', 'TanStack Query', 'Supabase', 'Cloudflare R2', 'Vercel', 'Google Cloud', 'LLM Integration', 'Agentic AI', 'AI Automations', 'Git'].map(skill => (
                 <span key={skill} className="px-4 py-2 bg-white border border-zinc-200 rounded-full text-sm font-medium text-zinc-700 shadow-sm hover:border-zinc-300 hover:shadow-md transition-all cursor-default">
                   {skill}
                 </span>
@@ -98,16 +98,11 @@ export default function Home() {
                     
                     <div className="mt-auto">
                       <div className="flex flex-wrap gap-2 mb-6">
-                        {project.stack.slice(0, 3).map(tech => (
+                        {project.stack.map(tech => (
                           <span key={tech} className="inline-flex items-center px-2 py-1 rounded-md bg-zinc-50 border border-zinc-200 text-xs font-medium text-zinc-600">
                             {tech}
                           </span>
                         ))}
-                        {project.stack.length > 3 && (
-                          <span className="inline-flex items-center px-2 py-1 rounded-md bg-zinc-50 border border-zinc-200 text-xs font-medium text-zinc-600">
-                            +{project.stack.length - 3}
-                          </span>
-                        )}
                       </div>
                       
                       <div className="flex items-center gap-4 text-sm font-medium text-zinc-500">
