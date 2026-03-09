@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="w-full max-w-5xl mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
+      <header className="w-full max-w-7xl mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
         <FadeIn className="max-w-4xl">
           <div className="mb-8">
             <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
@@ -48,7 +48,26 @@ export default function Home() {
           <div className="pt-8 border-t border-zinc-200">
             <p className="text-sm font-medium text-zinc-500 mb-4 uppercase tracking-wider">Core Technologies</p>
             <div className="flex flex-wrap gap-2">
-              {['TypeScript', 'JavaScript', 'Python', 'React', 'Next.js', 'React Native', 'Node.js', 'Tailwind CSS', 'Zustand', 'TanStack Query', 'Supabase', 'Cloudflare R2', 'Vercel', 'Google Cloud', 'LLM Integration', 'Agentic AI', 'AI Automations', 'Git'].map(skill => (
+              {[
+                'Agentic AI', 
+                'AI Automations', 
+                'LLM Integration', 
+                'Python', 
+                'TypeScript', 
+                'JavaScript', 
+                'Next.js', 
+                'React Native', 
+                'React', 
+                'Node.js', 
+                'Supabase', 
+                'Cloudflare R2', 
+                'Google Cloud', 
+                'Vercel', 
+                'Zustand', 
+                'TanStack Query', 
+                'Tailwind CSS', 
+                'Git'
+              ].map(skill => (
                 <span key={skill} className="px-4 py-2 bg-white border border-zinc-200 rounded-full text-sm font-medium text-zinc-700 shadow-sm hover:border-zinc-300 hover:shadow-md transition-all cursor-default">
                   {skill}
                 </span>
@@ -58,13 +77,13 @@ export default function Home() {
         </FadeIn>
       </header>
 
-      <main className="flex-1 w-full max-w-5xl mx-auto px-6 pt-4 pb-12">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-6 pt-4 pb-12">
         <FadeIn delay={0.2} className="mb-12">
           <h2 className="font-display text-2xl font-bold text-zinc-900 mb-2">Selected Projects</h2>
           <p className="text-zinc-500">A collection of my recent work in AI and software engineering.</p>
         </FadeIn>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {sortedProjects.map((project) => (
             <StaggerItem key={project.slug} className="h-full">
               <Link 
@@ -137,7 +156,7 @@ export default function Home() {
       </main>
 
       <FadeIn delay={0.4}>
-        <footer className="w-full max-w-5xl mx-auto px-6 py-8 border-t border-zinc-200 mt-12">
+        <footer className="w-full max-w-7xl mx-auto px-6 py-8 border-t border-zinc-200 mt-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.
