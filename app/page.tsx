@@ -39,7 +39,7 @@ export default function Home() {
               <Mail className="w-4 h-4" />
               Email
             </ContactTrigger>
-            <a href="/cv.pdf" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+            <a href="/CV_PolCayuela_AIdev.pdf" download className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
               <FileText className="w-4 h-4" />
               Download CV
             </a>
