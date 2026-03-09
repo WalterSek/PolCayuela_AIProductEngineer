@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone, CheckCircle } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
@@ -18,7 +18,7 @@ export default function Home() {
           <div className="mb-8 max-w-5xl">
             <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
               Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
-              <span className="text-zinc-500">AI Product Developer.</span>
+              <span className="text-zinc-500">AI Product Engineer.</span>
             </h1>
             <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-4xl">
               Full-stack developer based in Barcelona building AI-native applications. 
@@ -146,12 +146,12 @@ export default function Home() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {sortedProjects.map((project) => (
             <StaggerItem key={project.slug} className="h-full">
-              <Link 
-                href={`/projects/${project.slug}`} 
+              <div 
                 className="group flex flex-col bg-white rounded-2xl border border-zinc-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:border-zinc-300 h-full shadow-sm"
               >
                 {project.imageUrl && (
-                    <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-100">
+                  <Link href={`/projects/${project.slug}`}>
+                    <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-100 cursor-pointer">
                       <Image
                         src={project.imageUrl}
                         alt={project.name}
@@ -161,55 +161,82 @@ export default function Home() {
                         className="object-cover"
                       />
                     </div>
+                  </Link>
+                )}
+                <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-start justify-between mb-3">
+                    <Link href={`/projects/${project.slug}`} className="font-display text-xl font-bold text-zinc-900 group-hover:text-zinc-700 transition-colors">
+                      {project.name}
+                    </Link>
+                    {project.status && (
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-zinc-100 text-zinc-800">
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm font-medium text-zinc-900 mb-2">{project.tagline}</p>
+                  <p className="text-sm text-zinc-600 mb-4">{project.description}</p>
+                  
+                  {/* Production Features */}
+                  {project.productionFeatures && project.productionFeatures.length > 0 && (
+                    <div className="mb-4 p-3 bg-zinc-50 rounded-lg border border-zinc-100">
+                      <p className="text-xs font-semibold text-zinc-900 mb-2">Production Features:</p>
+                      <ul className="space-y-1">
+                        {project.productionFeatures.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-xs text-zinc-600">
+                            <CheckCircle className="w-3 h-3 mt-0.5 text-zinc-400 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="flex items-start justify-between mb-4">
-                      <h3 className="font-display text-xl font-bold text-zinc-900 group-hover:text-zinc-700 transition-colors">
-                        {project.name}
-                      </h3>
-                      {project.status && (
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-zinc-100 text-zinc-800">
-                          {project.status}
+                  
+
+                  <div className="mt-auto">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.stack.map(tech => (
+                        <span key={tech} className="inline-flex items-center px-2 py-1 rounded-md bg-zinc-50 border border-zinc-200 text-xs font-medium text-zinc-600">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      {project.links.demo && (
+                        <a 
+                          href={project.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-700 transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" /> Live Web App
+                        </a>
+                      )}
+                      {project.links.playStore && (
+                        <a 
+                          href={project.links.playStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-700 transition-colors"
+                        >
+                          <Smartphone className="w-4 h-4" /> Google Play Internal Testing
+                        </a>
+                      )}
+                      {project.links.repo && (
+                        <span className="flex items-center gap-1.5 hover:text-zinc-900 transition-colors">
+                          <Code2 className="w-4 h-4" /> Repo
+                        </span>
+                      )}
+                      {project.links.video && (
+                        <span className="flex items-center gap-1.5 hover:text-zinc-900 transition-colors">
+                          <PlayCircle className="w-4 h-4" /> Video
                         </span>
                       )}
                     </div>
-                    <p className="text-sm font-medium text-zinc-900 mb-2">{project.tagline}</p>
-                    <p className="text-sm text-zinc-600 mb-6">{project.description}</p>
-                    
-                    <div className="mt-auto">
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.stack.map(tech => (
-                          <span key={tech} className="inline-flex items-center px-2 py-1 rounded-md bg-zinc-50 border border-zinc-200 text-xs font-medium text-zinc-600">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <div className="flex items-center gap-4 text-sm font-medium text-zinc-500">
-                        {project.links.demo && (
-                          <span className="flex items-center gap-1.5 hover:text-zinc-900 transition-colors">
-                            <ExternalLink className="w-4 h-4" /> Demo
-                          </span>
-                        )}
-                        {project.links.playStore && (
-                          <span className="flex items-center gap-1.5 hover:text-zinc-900 transition-colors">
-                            <Smartphone className="w-4 h-4" /> App
-                          </span>
-                        )}
-                        {project.links.repo && (
-                          <span className="flex items-center gap-1.5 hover:text-zinc-900 transition-colors">
-                            <Code2 className="w-4 h-4" /> Repo
-                          </span>
-                        )}
-                        {project.links.video && (
-                          <span className="flex items-center gap-1.5 hover:text-zinc-900 transition-colors">
-                            <PlayCircle className="w-4 h-4" /> Video
-                          </span>
-                        )}
-                      </div>
-                    </div>
                   </div>
-                </Link>
+                </div>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>

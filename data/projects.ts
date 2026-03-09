@@ -13,9 +13,14 @@ export interface Project {
     video?: string;
     playStore?: string;
   };
-  status?: "Production" | "Prototype" | "Beta" | "Launch Soon";
+  status?: "Production" | "Prototype" | "Beta" | "Launch Soon" | "Google Play Internal Testing" | "Live Web App";
   featured?: boolean;
   imageUrl?: string;
+  demoCredentials?: {
+    email: string;
+    password: string;
+  };
+  productionFeatures?: string[];
 }
 
 export const projects: Project[] = [
@@ -197,7 +202,13 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
     },
     imageUrl: "/culinaria-cover.jpg",
     status: "Launch Soon",
-    featured: true
+    featured: true,
+    productionFeatures: [
+      "Live Gemini multimodal voice integration",
+      "Google Play Billing & RevenueCat subscriptions",
+      "Supabase Auth & real-time database syncing",
+      "Google Cloud Run backend"
+    ]
   },
   {
     slug: "infinite-visuals",
@@ -214,7 +225,16 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
     },
     imageUrl: "/infinitevisuals-cover.jpg",
     status: "Beta",
-    featured: true
+    featured: true,
+    demoCredentials: {
+      email: "demo@test.com",
+      password: "password123"
+    },
+    productionFeatures: [
+      "Fully functional Stripe payment integration",
+      "Cloudflare R2 scalable image storage",
+      "Secure user authentication and asset management"
+    ]
   },
   {
     slug: "cryptoedge-insights",
@@ -231,7 +251,16 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
     },
     imageUrl: "/cryptoedge-cover.jpg",
     status: "Beta",
-    featured: false
+    featured: false,
+    demoCredentials: {
+      email: "demo@test.com",
+      password: "password123"
+    },
+    productionFeatures: [
+      "Real-time market data APIs (CoinGecko, Binance, altFINS)",
+      "TradingView advanced charting integration",
+      "Secure user authentication and portfolio tracking"
+    ]
   },
   {
     slug: "pxlmorph",
@@ -287,6 +316,15 @@ PxlMorph supports 50+ artistic styles across multiple categories. Each style inc
     },
     imageUrl: "/pxlmorph-cover.jpg",
     status: "Beta",
-    featured: true
+    featured: true,
+    demoCredentials: {
+      email: "demo@test.com",
+      password: "password123"
+    },
+    productionFeatures: [
+      "OpenAI Image API integration (50+ styles)",
+      "Cloudflare R2 image storage",
+      "Supabase Auth & image history management"
+    ]
   }
 ];
