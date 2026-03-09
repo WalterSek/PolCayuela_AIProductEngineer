@@ -14,19 +14,19 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="w-full max-w-7xl mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
-        <FadeIn className="max-w-4xl">
-          <div className="mb-8">
+        <FadeIn>
+          <div className="mb-8 max-w-5xl">
             <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
               Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
               <span className="text-zinc-500">AI Product Developer.</span>
             </h1>
-            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-3xl">
               Full-stack developer from Barcelona with a deep focus on AI integration. 
               I craft production-ready, intelligent applications by leveraging modern AI workflows to build scalable, end-to-end solutions.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-wrap gap-4 mb-12 max-w-5xl">
             <a href="https://github.com/waltersek" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
               <Github className="w-4 h-4" />
               GitHub
@@ -45,33 +45,84 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="pt-8 border-t border-zinc-200">
-            <p className="text-sm font-medium text-zinc-500 mb-4 uppercase tracking-wider">Core Technologies</p>
-            <div className="flex flex-wrap gap-2">
-              {[
-                'Agentic AI', 
-                'AI Automations', 
-                'LLM Integration', 
-                'Python', 
-                'TypeScript', 
-                'JavaScript', 
-                'Next.js', 
-                'React Native', 
-                'React', 
-                'Node.js', 
-                'Supabase', 
-                'Cloudflare R2', 
-                'Google Cloud', 
-                'Vercel', 
-                'Zustand', 
-                'TanStack Query', 
-                'Tailwind CSS', 
-                'Git'
-              ].map(skill => (
-                <span key={skill} className="px-4 py-2 bg-white border border-zinc-200 rounded-full text-sm font-medium text-zinc-700 shadow-sm hover:border-zinc-300 hover:shadow-md transition-all cursor-default">
-                  {skill}
-                </span>
-              ))}
+          <div className="pt-8 border-t border-zinc-200 w-full">
+            <div className="flex flex-wrap gap-x-12 gap-y-10">
+              <div className="max-w-[280px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI & Intelligence</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'Agentic AI', 
+                    'AI Automations', 
+                    'LLM Integration', 
+                    'Gemini API',
+                    'Gemini Live API',
+                    'Google Vertex AI',
+                    'OpenAI API'
+                  ].map(skill => (
+                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="max-w-[260px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Frontend & Mobile</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'Next.js', 
+                    'React Native', 
+                    'React', 
+                    'Expo',
+                    'TypeScript',
+                    'JavaScript',
+                    'Tailwind CSS',
+                    'Zustand',
+                    'TanStack Query'
+                  ].map(skill => (
+                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="max-w-[260px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Backend & Cloud</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'Node.js', 
+                    'Express',
+                    'Python',
+                    'Supabase', 
+                    'Cloudflare R2', 
+                    'Google Cloud Platform', 
+                    'Cloud Run',
+                    'Vercel'
+                  ].map(skill => (
+                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="max-w-[240px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Monetization & Tools</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'Stripe',
+                    'RevenueCat',
+                    'LiveKit',
+                    'Google Play Store',
+                    'Git'
+                  ].map(skill => (
+                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </FadeIn>
