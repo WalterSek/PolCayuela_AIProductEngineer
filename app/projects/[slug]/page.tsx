@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ExternalLink, Code2, PlayCircle, BookOpen, CheckCircle2, Smartphone } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { Metadata } from 'next';
@@ -59,11 +60,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           {project.imageUrl && (
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-zinc-200 mb-8 shadow-sm">
-              <img
+              <Image
                 src={project.imageUrl}
                 alt={project.name}
-                className="w-full h-full object-cover"
+                fill
+                unoptimized
                 loading="eager"
+                className="object-cover"
               />
             </div>
           )}

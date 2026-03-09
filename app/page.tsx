@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations';
@@ -72,11 +73,13 @@ export default function Home() {
               >
                 {project.imageUrl && (
                     <div className="relative aspect-video w-full overflow-hidden border-b border-zinc-100">
-                      <img
+                      <Image
                         src={project.imageUrl}
                         alt={project.name}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
+                        fill
+                        unoptimized
+                        loading={sortedProjects.findIndex(p => p.slug === project.slug) === 0 ? "eager" : "lazy"}
+                        className="object-cover"
                       />
                     </div>
                   )}
