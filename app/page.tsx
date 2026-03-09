@@ -20,9 +20,9 @@ export default function Home() {
               Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
               <span className="text-zinc-500">AI Product Developer.</span>
             </h1>
-            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-3xl">
-              Full-stack developer from Barcelona with a deep focus on AI integration. 
-              I craft production-ready, intelligent applications by leveraging modern AI workflows to build scalable, end-to-end solutions.
+            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-4xl">
+              Full-stack developer based in Barcelona building AI-native applications. 
+              I leverage agentic workflows to rapidly architect and deploy production-ready, end-to-end software.
             </p>
           </div>
 
@@ -47,17 +47,16 @@ export default function Home() {
 
           <div className="pt-8 border-t border-zinc-200 w-full">
             <div className="flex flex-wrap gap-x-12 gap-y-10">
-              <div className="max-w-[280px]">
+              <div className="max-w-[200px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI & Intelligence</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     'Agentic AI', 
-                    'AI Automations', 
-                    'LLM Integration', 
-                    'Gemini API',
                     'Gemini Live API',
-                    'Google Vertex AI',
-                    'OpenAI API'
+                    'Gemini API',
+                    'OpenAI API',
+                    'Claude / MCP',
+                    'AI Automations'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
                       {skill}
@@ -66,18 +65,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[260px]">
+              <div className="max-w-[220px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Frontend & Mobile</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     'Next.js', 
                     'React Native', 
-                    'React', 
                     'Expo',
                     'TypeScript',
-                    'JavaScript',
                     'Tailwind CSS',
-                    'Zustand',
                     'TanStack Query'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
@@ -87,18 +83,16 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[260px]">
+              <div className="max-w-[220px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Backend & Cloud</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     'Node.js', 
-                    'Express',
                     'Python',
                     'Supabase', 
+                    'PostgreSQL',
                     'Cloudflare R2', 
-                    'Google Cloud Platform', 
-                    'Cloud Run',
-                    'Vercel'
+                    'GCP / Cloud Run'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
                       {skill}
@@ -107,15 +101,30 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[240px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Monetization & Tools</h3>
+              <div className="max-w-[200px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Product & Payments</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     'Stripe',
                     'RevenueCat',
                     'LiveKit',
-                    'Google Play Store',
-                    'Git'
+                    'Google Play Store'
+                  ].map(skill => (
+                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="max-w-[200px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">DevOps</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'Playwright',
+                    'Jest',
+                    'Git',
+                    'CI/CD'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
                       {skill}
