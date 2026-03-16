@@ -211,7 +211,7 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
     ]
   },
   {
-    slug: "infinite-visuals",
+    slug: "infinitevisuals",
     name: "InfiniteVisuals",
     tagline: "AI Brand Content Engine",
     description: "An AI-powered brand content engine designed to generate consistent, high-quality visual assets for brands. Full details coming soon.",
