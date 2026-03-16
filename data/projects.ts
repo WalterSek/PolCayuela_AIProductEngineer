@@ -221,7 +221,7 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
       "Consistent visual identity management."
     ],
     links: {
-      demo: "https://the-visual-engine.vercel.app/"
+      demo: "https://infinitevisuals.vercel.app/"
     },
     imageUrl: "/infinitevisuals-cover.jpg",
     status: "Beta",
@@ -237,8 +237,8 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
     ]
   },
   {
-    slug: "cryptoedge-insights",
-    name: "CryptoEdge Insights",
+    slug: "kryptodash",
+    name: "Kryptodash",
     tagline: "TA crypto analysis to spot better opportunities",
     description: "Advanced technical analysis platform for cryptocurrency markets to spot better trading opportunities. Full details coming soon.",
     stack: ["TypeScript", "Next.js", "React", "Supabase", "Cloudflare R2", "Vercel", "Gemini API", "CoinGecko API", "TradingView API", "altFINS API", "Binance API"],
@@ -247,7 +247,7 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
       "Secure user authentication and data storage."
     ],
     links: {
-      demo: "https://crypto-dashboard-ten-phi.vercel.app"
+      demo: "https://kryptodash.vercel.app/"
     },
     imageUrl: "/cryptoedge-cover.jpg",
     status: "Beta",
