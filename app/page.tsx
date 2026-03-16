@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="w-full max-w-7xl mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
+      <header className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
         <FadeIn>
           <div className="mb-8 max-w-5xl">
             <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
@@ -47,7 +47,7 @@ export default function Home() {
 
           <div className="pt-8 border-t border-zinc-200 w-full">
             <div className="flex flex-wrap gap-x-12 gap-y-10">
-              <div className="max-w-[200px]">
+              <div className="max-w-[240px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI & Intelligence</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
@@ -65,7 +65,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[220px]">
+              <div className="max-w-[260px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Frontend & Mobile</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
@@ -83,7 +83,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[220px]">
+              <div className="max-w-[260px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Backend & Cloud</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
@@ -101,7 +101,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[200px]">
+              <div className="max-w-[240px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Product & Payments</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
@@ -117,7 +117,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[200px]">
+              <div className="max-w-[240px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">DevOps</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
@@ -137,7 +137,7 @@ export default function Home() {
         </FadeIn>
       </header>
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-6 pt-4 pb-12">
+      <main className="flex-1 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 pt-4 pb-12">
         <FadeIn delay={0.2} className="mb-12">
           <h2 className="font-display text-2xl font-bold text-zinc-900 mb-2">Selected Projects</h2>
           <p className="text-zinc-500">A collection of my recent work in AI and software engineering.</p>
@@ -243,7 +243,7 @@ export default function Home() {
       </main>
 
       <FadeIn delay={0.4}>
-        <footer className="w-full max-w-7xl mx-auto px-6 py-8 border-t border-zinc-200 mt-12">
+        <footer className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 py-8 border-t border-zinc-200 mt-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.
