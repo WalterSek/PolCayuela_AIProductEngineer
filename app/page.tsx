@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone, CheckCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone, CheckCircle, Users } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
@@ -213,16 +213,38 @@ export default function Home() {
                           <ExternalLink className="w-4 h-4" /> Live Web App
                         </a>
                       )}
-                      {project.links.playStore && (
-                        <a 
-                          href={project.links.playStore}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-700 transition-colors"
-                        >
-                          <Smartphone className="w-4 h-4" /> Google Play Internal Testing
-                        </a>
+                    <div className="flex flex-col gap-1">
+                      <div className="flex items-center gap-3">
+                        {project.links.testerGroup && (
+                          <a 
+                            href={project.links.testerGroup}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-zinc-200 text-zinc-900 rounded-md text-sm font-medium hover:bg-zinc-50 transition-colors"
+                          >
+                            <Users className="w-4 h-4" /> Become a Tester
+                          </a>
+                        )}
+                        {project.links.playStore && (
+                          <a 
+                            href={project.links.playStore}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-700 transition-colors"
+                          >
+                            <Smartphone className="w-4 h-4" /> Google Play Testing
+                          </a>
+                        )}
+                      </div>
+                      {project.links.testerGroup && (
+                        <p className="text-xs text-zinc-400">
+                          (Android only)<br />
+                          1. Click Become a Tester → Click Join group<br />
+                          2. Click Google Play Testing → Click Become a Tester<br />
+                          3. Download the beta app from google play
+                        </p>
                       )}
+                    </div>
                       {project.links.repo && (
                         <span className="flex items-center gap-1.5 hover:text-zinc-900 transition-colors">
                           <Code2 className="w-4 h-4" /> Repo

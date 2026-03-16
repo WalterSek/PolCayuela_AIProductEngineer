@@ -12,6 +12,7 @@ export interface Project {
     caseStudy?: string;
     video?: string;
     playStore?: string;
+    testerGroup?: string;
   };
   status?: "Production" | "Prototype" | "Beta" | "Launch Soon" | "Google Play Internal Testing" | "Live Web App";
   featured?: boolean;
@@ -198,7 +199,8 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
       "Fully architected backend on Cloud Run with Supabase RLS and RevenueCat subscription tiers."
     ],
     links: {
-      playStore: "https://play.google.com/apps/internaltest/4701633744859965772"
+      playStore: "https://play.google.com/apps/internaltest/4701633744859965772",
+      testerGroup: "https://groups.google.com/g/culinaria-testers"
     },
     imageUrl: "/culinaria-cover.jpg",
     status: "Launch Soon",

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, ExternalLink, Code2, PlayCircle, BookOpen, CheckCircle2, Smartphone } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Code2, PlayCircle, BookOpen, CheckCircle2, Smartphone, Users } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { Metadata } from 'next';
 import Markdown from 'react-markdown';
@@ -78,12 +78,30 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 Visit Live Demo
               </a>
             )}
-            {project.links.playStore && (
-              <a href={project.links.playStore} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
-                <Smartphone className="w-4 h-4" />
-                Get Android App
-              </a>
+          <div className="flex flex-col gap-1">
+            <div className="flex flex-wrap gap-4">
+              {project.links.testerGroup && (
+                <a href={project.links.testerGroup} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+                  <Users className="w-4 h-4" />
+                  Become a Tester
+                </a>
+              )}
+              {project.links.playStore && (
+                <a href={project.links.playStore} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
+                  <Smartphone className="w-4 h-4" />
+                  Get Android App
+                </a>
+              )}
+            </div>
+            {project.links.testerGroup && (
+              <p className="text-xs text-zinc-400">
+                (Android only)<br />
+                1. Click Become a Tester → Click Join group<br />
+                2. Click become a member<br />
+                3. Download the beta app from google play
+              </p>
             )}
+          </div>
             {project.links.repo && (
               <a href={project.links.repo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
                 <Code2 className="w-4 h-4" />
