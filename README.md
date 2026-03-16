@@ -1,10 +1,9 @@
 <div align="center">
   <h1>Pol Cayuela</h1>
-  <h3>AI Product Developer</h3>
+  <h3>AI Product Engineer </h3>
   <p>
-    I’m a self‑taught full‑stack developer from Barcelona, Spain, specializing in AI integration.
-    I build production‑ready applications using React, TypeScript, and the Gemini API.
-  </p>
+        I'm an AI Product Engineer based in Barcelona, Spain. I ship end-to-end AI applications — from mobile to web — integrating LLMs, voice, image generation, and agentic workflows into production-ready products.
+
 </div>
 
 <div align="center">
