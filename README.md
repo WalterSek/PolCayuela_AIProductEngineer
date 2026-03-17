@@ -2,7 +2,7 @@
   <h1>Pol Cayuela</h1>
   <h3>AI Product Engineer </h3>
   <p>
-        I'm an AI Product Engineer based in Barcelona, Spain. I ship end-to-end AI applications — from mobile to web — integrating LLMs, voice, image generation, and agentic workflows into production-ready products.
+        Based in Barcelona, Spain. I ship end-to-end AI applications — from mobile to web — integrating LLMs, voice, image generation, and agentic workflows into production-ready products.
 
 </div>
 
