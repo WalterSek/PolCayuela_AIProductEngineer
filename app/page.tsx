@@ -21,7 +21,7 @@ export default function Home() {
               <span className="text-zinc-500">AI Product Engineer.</span>
             </h1>
             <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-4xl">
-                          AI Product Engineer based in Barcelona, shipping end-to-end AI-native applications — from mobile to web, integrating LLMs, agentic workflows, and generative AI into production.
+                          Based in Barcelona, shipping end-to-end AI-native applications — from mobile to web, integrating LLMs, agentic workflows, and generative AI into production.
               
             </p>
           </div>
