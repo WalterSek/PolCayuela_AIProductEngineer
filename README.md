@@ -8,7 +8,7 @@
 
 <div align="center">
 
-[![LIVE DEMO →](https://img.shields.io/badge/LIVE%20DEMO-%E2%86%92-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://pol-cayuela-ai-dev-portfolio.vercel.app)
+[![LIVE DEMO →](https://img.shields.io/badge/LIVE%20DEMO-%E2%86%92-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://polcayuela-aiproductengineer.vercel.app)
 
 </div>
 
