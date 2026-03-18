@@ -242,7 +242,7 @@ export default function Home() {
                           1. Click Become a Tester → Click Join group<br />
                           2. Click Google Play Testing → Click Become a Tester<br />
                           3. Click the link: Download it on Google Play<br />
-                          4. Leave feedback → Use the feedback form inside the app to share your thoughts
+                          4. Leave your feedback and give a 5-star rating if you enjoy it!<br />
                         </p>
                       )}
                     </div>
