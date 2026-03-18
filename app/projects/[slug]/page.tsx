@@ -98,7 +98,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 (Android only)<br />
                 1. Click Become a Tester → Click Join group<br />
                 2. Click become a member<br />
-                3. Download the beta app from google play
+                3. Download the beta app from Google Play<br />
+                4. Leave your feedback and give a 5-star rating if you enjoy it!
               </p>
             )}
           </div>
