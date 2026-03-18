@@ -241,7 +241,8 @@ export default function Home() {
                           (Android only)<br />
                           1. Click Become a Tester → Click Join group<br />
                           2. Click Google Play Testing → Click Become a Tester<br />
-                          3. Download the beta app from google play
+                          3. Click the link: Download it on Google Play<br />
+                          4. Leave feedback → Use the feedback form inside the app to share your thoughts
                         </p>
                       )}
                     </div>
