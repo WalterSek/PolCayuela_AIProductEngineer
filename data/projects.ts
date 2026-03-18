@@ -199,7 +199,7 @@ CulinarIA is your AI-powered cooking companion built with **Google Gemini's mult
       "Fully architected backend on Cloud Run with Supabase RLS and RevenueCat subscription tiers."
     ],
     links: {
-      playStore: "https://play.google.com/apps/internaltest/4701633744859965772",
+      playStore: "https://play.google.com/apps/testing/com.kayuken.culinaria",
       testerGroup: "https://groups.google.com/g/culinaria-testers"
     },
     imageUrl: "/culinaria-cover.jpg",
