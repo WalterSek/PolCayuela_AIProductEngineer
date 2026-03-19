@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="min-h-screen flex flex-col bg-zinc-50">
       <FadeIn>
-        <header className="w-full max-w-4xl mx-auto px-4 md:px-6 py-8">
+        <header className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8">
           <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" />
             Back to projects
@@ -125,9 +125,26 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </header>
       </FadeIn>
 
-      <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-6 py-8">
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-6">
         <FadeIn delay={0.1}>
           
+          <section className="mb-10">
+            <div className="grid grid-cols-5 gap-3">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <div key={num} className="relative aspect-[1/2] overflow-hidden rounded-xl border border-zinc-200 shadow-sm bg-zinc-100">
+                  <Image
+                    src={`/CulinariaScreenshots/image${num}.png`}
+                    alt={`${project.name} screenshot ${num}`}
+                    fill
+                    unoptimized
+                    loading="lazy"
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+
           <section className="mb-10">
             <h2 className="font-display text-xl font-bold text-zinc-900 mb-4">Tech Stack</h2>
             <div className="flex flex-wrap gap-2">
@@ -169,7 +186,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </main>
 
       <FadeIn delay={0.2}>
-        <footer className="w-full max-w-4xl mx-auto px-4 md:px-6 py-8 mt-auto">
+        <footer className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8 mt-auto">
           <div className="flex flex-col md:flex-row items-center justify-between border-t border-zinc-200 pt-8 gap-4">
             <p className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.
