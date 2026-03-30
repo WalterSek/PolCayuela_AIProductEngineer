@@ -16,13 +16,15 @@ export default function Home() {
       <header className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
         <FadeIn>
           <div className="mb-8 max-w-5xl">
-            <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-4">
+            <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-2">
               Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
               <span className="text-zinc-500">AI Product Engineer.</span>
             </h1>
-            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-4xl">
-                          Based in Barcelona, shipping end-to-end AI-native applications — from mobile to web, integrating LLMs, agentic workflows, and generative AI into production.
-              
+            <p className="text-sm text-zinc-400 mb-4 flex items-center gap-1.5">
+              <span>📍</span> Barcelona, Spain
+            </p>
+            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-5xl">
+              Building production-ready AI-native applications. I design and ship end-to-end full-stack products across web and mobile, integrating LLMs, real-time voice, image generation, and agentic workflows.
             </p>
           </div>
 
