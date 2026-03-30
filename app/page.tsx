@@ -49,16 +49,19 @@ export default function Home() {
 
           <div className="pt-8 border-t border-zinc-200 w-full">
             <div className="flex flex-wrap gap-x-12 gap-y-10">
-              <div className="max-w-[240px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI & Intelligence</h3>
+              <div className="max-w-[280px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
-                    'Agentic AI', 
-                    'Gemini Live API',
-                    'Gemini API',
+                    'Gemini API & Gemini Live',
                     'OpenAI API',
-                    'Claude / MCP',
-                    'AI Automations'
+                    'Google Agent ADK',
+                    'Vertex AI',
+                    'Agentic AI & Automations',
+                    'LLM Integration',
+                    'Structured Outputs',
+                    'Tool Calling',
+                    'Generative AI Workflows'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
                       {skill}
@@ -67,16 +70,19 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[260px]">
+              <div className="max-w-[280px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Frontend & Mobile</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
-                    'Next.js', 
-                    'React Native', 
-                    'Expo',
                     'TypeScript',
+                    'Next.js',
+                    'React',
+                    'React Native',
+                    'Expo',
                     'Tailwind CSS',
-                    'TanStack Query'
+                    'TanStack Query',
+                    'Zustand',
+                    'Zod'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
                       {skill}
@@ -85,16 +91,20 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[260px]">
+              <div className="max-w-[280px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Backend & Cloud</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
-                    'Node.js', 
+                    'Node.js',
                     'Python',
-                    'Supabase', 
-                    'PostgreSQL',
-                    'Cloudflare R2', 
-                    'GCP / Cloud Run'
+                    'Supabase (Auth, PostgreSQL)',
+                    'GCP / Cloud Run',
+                    'R2 Storage',
+                    'Docker',
+                    'REST APIs',
+                    'LiveKit',
+                    'WebSockets',
+                    'Webhooks'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
                       {skill}
@@ -103,13 +113,12 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[240px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Product & Payments</h3>
+              <div className="max-w-[200px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Payments</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
                     'Stripe',
                     'RevenueCat',
-                    'LiveKit',
                     'Google Play Store'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
@@ -119,14 +128,29 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="max-w-[240px]">
+              <div className="max-w-[200px]">
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">DevOps</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {[
-                    'Playwright',
-                    'Jest',
                     'Git',
-                    'CI/CD'
+                    'CI/CD',
+                    'Playwright',
+                    'Jest'
+                  ].map(skill => (
+                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="max-w-[240px]">
+                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI-Augmented Development</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'GitHub Copilot',
+                    'Gemini CLI',
+                    'Claude + MCPs + Skills'
                   ].map(skill => (
                     <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
                       {skill}
