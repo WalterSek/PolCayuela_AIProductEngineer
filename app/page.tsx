@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone, CheckCircle, Users } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ExternalLink, Code2, PlayCircle, Smartphone, CheckCircle, Users, MapPin } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
@@ -21,7 +21,7 @@ export default function Home() {
               <span className="text-zinc-500">AI Product Engineer.</span>
             </h1>
             <p className="text-sm text-zinc-400 mb-4 flex items-center gap-1.5">
-              <span>📍</span> Barcelona, Spain
+              <MapPin className="w-3.5 h-3.5" /> Barcelona, Spain
             </p>
             <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-5xl">
               Building production-ready AI-native applications. I design and ship end-to-end full-stack products across web and mobile, integrating LLMs, real-time voice, image generation, and agentic workflows.
