@@ -106,7 +106,6 @@ CulinarIA is an AI-powered cooking companion that bridges the gap between discov
      ┌────────▼─────────┐
      │  BILLING         │
      │  • RevenueCat    │
-     │  • Paddle        │
      └──────────────────┘
 \`\`\`
 
@@ -129,7 +128,7 @@ CulinarIA is an AI-powered cooking companion that bridges the gap between discov
 │  ├── voice.routes.ts        # LiveKit tokens, Gemini Live API              │
 │  ├── user.routes.ts         # Profile, usage tracking                       │
 │  ├── storage.routes.ts      # R2 presigned URLs                            │
-│  ├── subscription.routes.ts # RevenueCat/Paddle webhooks                   │
+│  ├── subscription.routes.ts # RevenueCat webhooks                   │
 │  └── webhook.routes.ts      # External service callbacks                   │
 │                                                                             │
 │  SERVICE LAYER (src/services/)                                              │
@@ -207,7 +206,7 @@ cookshelf/
 - Gemini 3 Flash for recipe extraction from any URL or image
 - Gemini 3.1 Imagen for AI-generated step-by-step images
 - LiveKit Agents + Gemini 2.5 Flash Native Audio for real-time voice assistant
-- RevenueCat (mobile) + Paddle (web) for dual-platform subscription management (Free, Starter, Pro, Ultimate tiers)
+- RevenueCat for mobile subscription management (Free, Starter, Pro, Ultimate tiers)
 - Supabase with Row Level Security for all user data
 - Cloudflare R2 for scalable image storage with signed URL security
 
@@ -236,11 +235,11 @@ cookshelf/
 - Backend JWT verification middleware for protected routes
 - Environment variable separation (mobile: EXPO_PUBLIC_*, backend: standard)
 `,
-    stack: ["TypeScript", "React Native", "Expo", "Node.js", "Express", "Supabase", "Cloudflare R2", "Gemini API", "Gemini Live API", "LiveKit", "Cloud Run", "Docker", "RevenueCat", "Paddle", "Vitest", "Jest"],
+    stack: ["TypeScript", "React Native", "Expo", "Node.js", "Express", "Supabase Auth + DB", "Cloudflare R2", "Gemini API", "Gemini Live API", "LiveKit", "Cloud Run", "Docker", "RevenueCat", "TanStack Query", "Zustand", "Zod", "Vitest", "Jest"],
     highlights: [
       "Monorepo architecture with npm workspaces and shared Zod API contracts for type-safe cross-platform communication.",
       "LiveKit AI agent with Gemini 2.5 Flash Native Audio for real-time voice cooking assistant with 13 custom server tools.",
-      "Dual-platform billing: RevenueCat (mobile) + Paddle (web) with tiered subscription management.",
+      "Dual-platform billing: RevenueCat for mobile subscriptions with tiered subscription management.",
       "Dockerized Node.js 22 backend on Google Cloud Run with automated CI/CD via Cloud Build.",
       "Comprehensive testing: Vitest (backend), Jest (mobile) with esbuild bundling for production.",
       "Row Level Security (RLS) on Supabase PostgreSQL with JWT authentication middleware."
@@ -254,7 +253,7 @@ cookshelf/
     featured: true,
     productionFeatures: [
       "Live Gemini multimodal voice integration via LiveKit Agents",
-      "Dual-platform billing: RevenueCat (mobile) + Paddle (web)",
+      "RevenueCat mobile subscription management with tiered plans",
       "Google Cloud Run backend with Docker containerization",
       "Supabase Auth & real-time database syncing with RLS",
       "Comprehensive test suite: Vitest + Jest",
@@ -551,7 +550,7 @@ Replace expensive, time-consuming traditional photoshoots with instant AI-genera
 - Comprehensive Stripe webhook testing suite
 - Type safety via generated Supabase types
 `,
-    stack: ["TypeScript", "Next.js", "React", "Supabase", "Cloudflare R2", "Vercel", "Gemini API", "Google ADK", "Stripe", "Zustand", "Jest", "Playwright"],
+    stack: ["TypeScript", "Next.js", "React", "Supabase Auth + DB", "Cloudflare R2", "Vercel", "Gemini API", "Google ADK", "Stripe", "Zustand", "TanStack Query", "Zod", "Jest", "Playwright", "Tailwind CSS", "Framer Motion"],
     highlights: [
       "Google ADK multi-agent orchestration with CampaignOrchestrator, ProductAnalyzer, TrendsResearcher, CreativeBrief, and QCValidator agents.",
       "Native structured outputs with Zod schemas for type-safe AI responses and automatic state cleanup.",
@@ -879,7 +878,7 @@ Kryptodash is an advanced cryptocurrency trading insights platform that combines
 - Auto-profile creation via database trigger on signup
 - Client-side Pro access hook with real-time subscription status
 `,
-    stack: ["TypeScript", "Next.js", "React", "Supabase", "Vercel", "Gemini API", "CoinGecko API", "TradingView", "altFINS API", "Binance API", "Zustand", "TanStack Query", "Heroui"],
+    stack: ["TypeScript", "Next.js", "React", "Supabase Auth + DB", "Vercel", "Gemini API", "CoinGecko API", "TradingView", "altFINS API", "Binance API", "Zustand", "TanStack Query", "HeroUI", "Zod", "Stripe", "Jest", "Chart.js"],
     highlights: [
       "Real-time Binance WebSocket with exponential backoff, auto-reconnect, and visual price change indicators.",
       "Freemium model with Pro tier gating: Free (dashboard + limited watchlist) vs Pro ($9.99/mo - AI Analysis + unlimited).",
@@ -1196,7 +1195,7 @@ PxlMorph supports 50+ artistic styles across multiple categories. Each style inc
 - **Quota Management**: Credit tracking via \`quota.ts\`
 - **Logger**: Structured logging via \`logger.ts\`
 `,
-    stack: ["TypeScript", "Next.js", "React", "Supabase", "Cloudflare R2", "Cloudflare Workers", "Vercel", "OpenAI API", "Stripe", "Tailwind CSS", "Zustand"],
+    stack: ["TypeScript", "Next.js", "React", "Supabase Auth + DB", "Cloudflare R2", "Cloudflare Workers", "Vercel", "OpenAI API", "Stripe", "Zustand", "TanStack Query", "Zod", "Sharp", "react-easy-crop", "Tailwind CSS"],
     highlights: [
       "50+ curated artistic styles with optimized prompts and example images.",
       "Stripe subscription billing with Checkout Sessions, Customer Portal, and idempotent webhooks.",
