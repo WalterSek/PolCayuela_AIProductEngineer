@@ -78,16 +78,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 Visit Live Demo
               </a>
             )}
-            {project.links.playStore && (
-              <a href={project.links.playStore} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
-                <Smartphone className="w-4 h-4" />
-                Get Android App
-              </a>
-            )}
             {project.links.testerGroup && (
               <a href={project.links.testerGroup} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
                 <Users className="w-4 h-4" />
-                Become a Tester
+                1. Become a Tester
+              </a>
+            )}
+            {project.links.playStore && (
+              <a href={project.links.playStore} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
+                <Smartphone className="w-4 h-4" />
+                2. Get Android App
               </a>
             )}
             {project.links.repo && (
@@ -109,6 +109,29 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </a>
             )}
           </div>
+
+          {project.links.testerGroup && (
+            <div className="mt-6 p-4 bg-zinc-50 rounded-xl border border-zinc-200">
+              <h3 className="font-display text-sm font-bold text-zinc-900 mb-3 flex items-center gap-2">
+                <Smartphone className="w-4 h-4" /> Beta Testing Instructions
+              </h3>
+              <p className="text-xs text-zinc-500 mb-3">(Android only)</p>
+              <ol className="space-y-2 text-sm text-zinc-700">
+                <li className="flex items-start gap-2">
+                  <span className="font-medium text-zinc-900">1.</span>
+                  Click <strong>1. Become a Tester</strong> → Click <strong>Join group</strong> → Click <strong>Become a member</strong>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="font-medium text-zinc-900">2.</span>
+                  Click <strong>2. Get Android App</strong> → In Play Store, click <strong>Become a Tester</strong> → Download the app
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="font-medium text-zinc-900">3.</span>
+                  Leave your feedback and give a 5-star rating if you enjoy it!
+                </li>
+              </ol>
+            </div>
+          )}
         </header>
       </FadeIn>
 
@@ -175,8 +198,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </FadeIn>
       </main>
 
-      <FadeIn delay={0.2}>
-        <footer className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8 mt-auto">
+      <FadeIn delay={0.2} className="mt-auto">
+        <footer className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between border-t border-zinc-200 pt-8 gap-4">
             <p className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.

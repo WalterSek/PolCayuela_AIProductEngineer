@@ -76,17 +76,28 @@ function ProjectCard({ project }: { project: Project }) {
               )}
             </div>
             
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-1.5 flex-wrap">
                 {project.links.demo && (
                   <a 
                     href={project.links.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-700 transition-colors"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-zinc-900 text-white rounded-md text-xs font-medium hover:bg-zinc-700 transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <ExternalLink className="w-4 h-4" /> Live
+                    <ExternalLink className="w-3.5 h-3.5" /> Live
+                  </a>
+                )}
+                {project.links.testerGroup && (
+                  <a 
+                    href={project.links.testerGroup}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-white border border-zinc-200 text-zinc-900 rounded-md text-xs font-medium hover:bg-zinc-50 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Users className="w-3.5 h-3.5" /> 1. Become a Tester
                   </a>
                 )}
                 {project.links.playStore && (
@@ -94,15 +105,15 @@ function ProjectCard({ project }: { project: Project }) {
                     href={project.links.playStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 text-white rounded-md text-sm font-medium hover:bg-zinc-700 transition-colors"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-zinc-900 text-white rounded-md text-xs font-medium hover:bg-zinc-700 transition-colors"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <Smartphone className="w-4 h-4" /> Play Store
+                    <Smartphone className="w-3.5 h-3.5" /> 2. Get Android App
                   </a>
                 )}
               </div>
               
-              <span className="text-sm font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors flex items-center gap-1">
+              <span className="text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors flex items-center gap-1 whitespace-nowrap">
                 View Details <span className="group-hover:translate-x-0.5 transition-transform">→</span>
               </span>
             </div>
