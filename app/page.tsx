@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Github, Linkedin, Mail, FileText, ExternalLink, Smartphone, CheckCircle, Users, MapPin } from 'lucide-react';
 import { projects } from '@/data/projects';
+import { skillCategories } from '@/data/skills';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
 import { useRouter } from 'next/navigation';
@@ -125,10 +126,7 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export default function Home() {
-  const sortedProjects = [...projects].sort((a, b) => {
-    if (a.featured === b.featured) return 0;
-    return a.featured ? -1 : 1;
-  });
+  const sortedProjects = [...projects].sort((a, b) => Number(b.featured) - Number(a.featured));
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -168,116 +166,18 @@ export default function Home() {
 
           <div className="pt-8 border-t border-zinc-200 w-full">
             <div className="flex flex-wrap gap-x-12 gap-y-10">
-              <div className="max-w-[280px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    'Gemini API & Gemini Live',
-                    'OpenAI API',
-                    'Google Agent ADK',
-                    'Vertex AI',
-                    'Agentic AI & Automations',
-                    'LLM Integration',
-                    'Structured Outputs',
-                    'Tool Calling',
-                    'Generative AI Workflows'
-                  ].map(skill => (
-                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
-                      {skill}
-                    </span>
-                  ))}
+              {skillCategories.map((category) => (
+                <div key={category.id} className={category.maxWidth ? `max-w-[${category.maxWidth}]` : ''}>
+                  <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">{category.title}</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {category.skills.map((skill) => (
+                      <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
-              <div className="max-w-[280px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Frontend & Mobile</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    'TypeScript',
-                    'Next.js',
-                    'React',
-                    'React Native',
-                    'Expo',
-                    'Tailwind CSS',
-                    'TanStack Query',
-                    'Zustand',
-                    'Zod'
-                  ].map(skill => (
-                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="max-w-[280px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Backend & Cloud</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    'Node.js',
-                    'Python',
-                    'Supabase (Auth, PostgreSQL)',
-                    'GCP / Cloud Run',
-                    'R2 Storage',
-                    'Docker',
-                    'REST APIs',
-                    'LiveKit',
-                    'WebSockets',
-                    'Webhooks'
-                  ].map(skill => (
-                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="max-w-[200px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">Payments</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    'Stripe',
-                    'RevenueCat',
-                    'Google Play Store'
-                  ].map(skill => (
-                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="max-w-[200px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">DevOps</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    'Git',
-                    'CI/CD',
-                    'Playwright',
-                    'Jest'
-                  ].map(skill => (
-                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="max-w-[240px]">
-                <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em] mb-4">AI-Augmented Development</h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    'GitHub Copilot',
-                    'Gemini CLI',
-                    'Claude Code',
-                    'MCPs + Skills'
-                  ].map(skill => (
-                    <span key={skill} className="px-2.5 py-1 bg-white border border-zinc-200 rounded-md text-[11px] font-medium text-zinc-600 shadow-sm hover:border-zinc-300 transition-all cursor-default">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </FadeIn>

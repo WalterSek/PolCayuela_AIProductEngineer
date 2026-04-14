@@ -20,6 +20,40 @@ export function ContactTrigger({ children, className }: { children: ReactNode, c
 function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  // Handle success state: close modal after delay, then reset form
+  useEffect(() => {
+    if (status !== 'success') return;
+
+    const closeTimer = setTimeout(() => {
+      onClose();
+    }, 2000);
+
+    return () => clearTimeout(closeTimer);
+  }, [status, onClose]);
+
+  // Reset form when modal closes after success
+  useEffect(() => {
+    if (!isOpen && status === 'success') {
+      const resetTimer = setTimeout(() => {
+        setStatus('idle');
+        setFormData({ name: '', email: '', message: '' });
+      }, 300);
+      return () => clearTimeout(resetTimer);
+    }
+  }, [isOpen, status]);
+
+  // Handle error state: auto-reset after delay
+  useEffect(() => {
+    if (status !== 'error') return;
+
+    const errorTimer = setTimeout(() => {
+      setStatus('idle');
+    }, 3000);
+
+    return () => clearTimeout(errorTimer);
+  }, [status]);
+
   // Prevent body scroll when open
   useEffect(() => {
     if (isOpen) {
@@ -46,16 +80,8 @@ function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
       if (!res.ok) throw new Error('Failed to send');
       
       setStatus('success');
-      setTimeout(() => {
-        onClose();
-        setTimeout(() => {
-          setStatus('idle');
-          setFormData({ name: '', email: '', message: '' });
-        }, 300);
-      }, 2000);
     } catch (err) {
       setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
     }
   };
 

@@ -1,12 +1,2 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-
-/* Hide scrollbar globally for a sleek look */
-html, body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-  display: none;
-}

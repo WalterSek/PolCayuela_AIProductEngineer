@@ -250,4 +250,11 @@ For those interested in the complete technical architecture, here are the detail
   imageUrl: "/culinaria-cover.jpg",
   status: "Launch Soon",
   featured: true,
+  screenshots: [
+    { src: "/CulinariaScreenshots/image1.png", alt: "Culinaria screenshot 1" },
+    { src: "/CulinariaScreenshots/image2.png", alt: "Culinaria screenshot 2" },
+    { src: "/CulinariaScreenshots/image3.png", alt: "Culinaria screenshot 3" },
+    { src: "/CulinariaScreenshots/image4.png", alt: "Culinaria screenshot 4" },
+    { src: "/CulinariaScreenshots/image5.png", alt: "Culinaria screenshot 5" },
+  ],
 };

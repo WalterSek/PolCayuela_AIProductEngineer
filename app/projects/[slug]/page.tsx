@@ -138,17 +138,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-6">
         <FadeIn delay={0.1}>
           
-          {/* Only show screenshot gallery if project has screenshots */}
-          {project.slug === 'culinaria' && (
+          {/* Screenshot gallery - shown if project has screenshots */}
+          {project.screenshots && project.screenshots.length > 0 && (
             <section className="mb-10">
-              <div className="grid grid-cols-5 gap-3">
-                {[1, 2, 3, 4, 5].map((num) => (
-                  <div key={num} className="relative aspect-[1/2] overflow-hidden rounded-xl border border-zinc-200 shadow-sm bg-zinc-100">
+              <div className={`grid gap-3 ${project.screenshots.length <= 3 ? `grid-cols-${project.screenshots.length}` : 'grid-cols-5'}`}>
+                {project.screenshots.map((screenshot, index) => (
+                  <div key={index} className="relative aspect-[1/2] overflow-hidden rounded-xl border border-zinc-200 shadow-sm bg-zinc-100">
                     <Image
-                      src={`/CulinariaScreenshots/image${num}.png`}
-                      alt={`${project.name} screenshot ${num}`}
+                      src={screenshot.src}
+                      alt={screenshot.alt}
                       fill
-                      unoptimized
                       loading="lazy"
                       className="object-contain"
                     />

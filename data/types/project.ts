@@ -1,3 +1,8 @@
+export interface Screenshot {
+  src: string;
+  alt: string;
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -22,4 +27,5 @@ export interface Project {
     password: string;
   };
   productionFeatures?: string[];
+  screenshots?: Screenshot[];
 }

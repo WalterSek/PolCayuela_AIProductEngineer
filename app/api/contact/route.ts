@@ -1,14 +1,24 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().email('Invalid email address'),
+  message: z.string().min(1, 'Message is required'),
+});
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, message } = body;
+    const result = contactSchema.safeParse(body);
 
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
+    if (!result.success) {
+      const errors = result.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join(', ');
+      return NextResponse.json({ error: `Validation failed: ${errors}` }, { status: 400 });
     }
+
+    const { name, email, message } = result.data;
 
     const user = process.env.EMAIL_USER;
     const pass = process.env.EMAIL_PASS;
