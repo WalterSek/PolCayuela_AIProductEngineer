@@ -146,19 +146,19 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-4 mb-12 max-w-5xl">
-            <a href="https://github.com/waltersek" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
+            <a href="https://github.com/waltersek" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium cursor-pointer">
               <Github className="w-4 h-4" />
               GitHub
             </a>
-            <a href="https://www.linkedin.com/in/polcayuela/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+            <a href="https://www.linkedin.com/in/polcayuela/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm cursor-pointer">
               <Linkedin className="w-4 h-4" />
               LinkedIn
             </a>
-            <ContactTrigger className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+            <ContactTrigger className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm cursor-pointer">
               <Mail className="w-4 h-4" />
               Email
             </ContactTrigger>
-            <a href="/CV_PolCayuela_AI.pdf" download className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+            <a href="/CV_PolCayuela_AI.pdf" download className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm cursor-pointer">
               <FileText className="w-4 h-4" />
               Download CV
             </a>
@@ -203,9 +203,9 @@ export default function Home() {
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm font-medium text-zinc-500">
-              <a href="https://github.com/waltersek" className="hover:text-zinc-900 transition-colors">GitHub</a>
-              <a href="https://www.linkedin.com/in/polcayuela/" className="hover:text-zinc-900 transition-colors">LinkedIn</a>
-              <ContactTrigger className="hover:text-zinc-900 transition-colors">Email</ContactTrigger>
+              <a href="https://github.com/waltersek" className="hover:text-zinc-900 transition-colors cursor-pointer">GitHub</a>
+              <a href="https://www.linkedin.com/in/polcayuela/" className="hover:text-zinc-900 transition-colors cursor-pointer">LinkedIn</a>
+              <ContactTrigger className="hover:text-zinc-900 transition-colors cursor-pointer">Email</ContactTrigger>
             </div>
           </div>
         </footer>

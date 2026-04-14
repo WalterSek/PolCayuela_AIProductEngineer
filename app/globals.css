@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@layer base {
+  * {
+    @apply select-none;
+  }
+
+  input,
+  textarea,
+  [contenteditable] {
+    @apply select-text;
+  }
+}

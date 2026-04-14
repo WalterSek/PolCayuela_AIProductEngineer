@@ -104,9 +104,9 @@ function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
           >
             <div className="flex items-center justify-between p-6 border-b border-zinc-100">
               <h2 className="font-display text-xl font-bold text-zinc-900">Get in touch</h2>
-              <button 
+              <button
                 onClick={onClose}
-                className="p-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors"
+                className="p-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-full transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -174,7 +174,7 @@ function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors font-medium disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors font-medium disabled:opacity-70 disabled:cursor-not-allowed mt-2 cursor-pointer"
                   >
                     {status === 'submitting' ? (
                       <>

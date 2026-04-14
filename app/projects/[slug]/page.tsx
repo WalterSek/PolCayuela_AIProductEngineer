@@ -41,7 +41,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <div className="min-h-screen flex flex-col bg-zinc-50">
       <FadeIn>
         <header className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors mb-8">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors mb-8 cursor-pointer">
             <ArrowLeft className="w-4 h-4" />
             Back to projects
           </Link>
@@ -73,37 +73,37 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           <div className="flex flex-wrap items-center gap-4">
             {project.links.demo && (
-              <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
+              <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium cursor-pointer">
                 <ExternalLink className="w-4 h-4" />
                 Visit Live Demo
               </a>
             )}
             {project.links.testerGroup && (
-              <a href={project.links.testerGroup} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+              <a href={project.links.testerGroup} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm cursor-pointer">
                 <Users className="w-4 h-4" />
                 1. Become a Tester
               </a>
             )}
             {project.links.playStore && (
-              <a href={project.links.playStore} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium">
+              <a href={project.links.playStore} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium cursor-pointer">
                 <Smartphone className="w-4 h-4" />
                 2. Get Android App
               </a>
             )}
             {project.links.repo && (
-              <a href={project.links.repo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+              <a href={project.links.repo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm cursor-pointer">
                 <Code2 className="w-4 h-4" />
                 View Source
               </a>
             )}
             {project.links.video && (
-              <a href={project.links.video} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+              <a href={project.links.video} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm cursor-pointer">
                 <PlayCircle className="w-4 h-4" />
                 Watch Video
               </a>
             )}
             {project.links.caseStudy && (
-              <a href={project.links.caseStudy} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm">
+              <a href={project.links.caseStudy} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-zinc-200 text-zinc-900 rounded-lg hover:bg-zinc-50 transition-colors text-sm font-medium shadow-sm cursor-pointer">
                 <BookOpen className="w-4 h-4" />
                 Read Case Study
               </a>
@@ -204,10 +204,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm font-medium text-zinc-500">
-              <a href="https://github.com/waltersek" className="hover:text-zinc-900 transition-colors">GitHub</a>
-              <a href="https://www.linkedin.com/in/polcayuela/" className="hover:text-zinc-900 transition-colors">LinkedIn</a>
-              <ContactTrigger className="hover:text-zinc-900 transition-colors">Email</ContactTrigger>
-              <Link href="/" className="hover:text-zinc-900 transition-colors">
+              <a href="https://github.com/waltersek" className="hover:text-zinc-900 transition-colors cursor-pointer">GitHub</a>
+              <a href="https://www.linkedin.com/in/polcayuela/" className="hover:text-zinc-900 transition-colors cursor-pointer">LinkedIn</a>
+              <ContactTrigger className="hover:text-zinc-900 transition-colors cursor-pointer">Email</ContactTrigger>
+              <Link href="/" className="hover:text-zinc-900 transition-colors cursor-pointer">
                 Home
               </Link>
             </div>
