@@ -11,4 +11,46 @@
   [contenteditable] {
     @apply select-text;
   }
+
+  /* Mobile: hide scrollbar completely */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+}
+
+/* Desktop: sleek fading thumb-only scrollbar */
+@media (hover: hover) and (pointer: fine) {
+  ::-webkit-scrollbar {
+    display: block;
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(60% 0.02 264 / 0);
+    border-radius: 100px;
+    transition: background 0.15s ease;
+  }
+
+  /* Thumb fades in on hover */
+  :hover::-webkit-scrollbar-thumb {
+    background: oklch(60% 0.02 264 / 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(50% 0.02 264 / 0.6);
+  }
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(60% 0.02 264 / 0.4) transparent;
+  }
 }

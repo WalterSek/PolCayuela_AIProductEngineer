@@ -160,17 +160,32 @@ export default function Home() {
       />
       <header className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
         <FadeIn>
-          <div className="mb-8 max-w-5xl">
-            <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-2">
-              Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
-              <span className="text-zinc-500">AI Product Engineer.</span>
-            </h1>
-            <p className="text-sm text-zinc-400 mb-4 flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5" /> Barcelona, Spain
-            </p>
-            <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-5xl">
-              Building production-ready AI-native applications. I design and ship end-to-end full-stack products across web and mobile, integrating LLMs, real-time voice, image generation, and agentic workflows.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16 mb-8">
+            <div className="flex-1">
+              <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-2">
+                Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
+                <span className="text-zinc-500">AI Product Engineer.</span>
+              </h1>
+              <p className="text-sm text-zinc-400 mb-4 flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5" /> Barcelona, Spain
+              </p>
+              <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-5xl">
+                Building production-ready AI-native applications. I design and ship end-to-end full-stack products across web and mobile, integrating LLMs, real-time voice, image generation, and agentic workflows.
+              </p>
+            </div>
+            <div className="flex-shrink-0 order-first md:order-last md:ml-auto">
+              <div className="w-24 h-24 md:w-36 md:h-36 rounded-2xl overflow-hidden border-2 border-zinc-200 shadow-lg bg-zinc-100">
+                <Image
+                  src="https://avatars.githubusercontent.com/u/189277735?v=4"
+                  alt="Pol Cayuela"
+                  width={144}
+                  height={144}
+                  className="w-full h-full object-cover"
+                  priority
+                  unoptimized
+                />
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-4 mb-12 max-w-5xl">
@@ -231,8 +246,8 @@ export default function Home() {
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm font-medium text-zinc-500">
-              <a href="https://github.com/waltersek" className="hover:text-zinc-900 transition-colors cursor-pointer">GitHub</a>
-              <a href="https://www.linkedin.com/in/polcayuela/" className="hover:text-zinc-900 transition-colors cursor-pointer">LinkedIn</a>
+              <a href="https://github.com/waltersek" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 transition-colors cursor-pointer">GitHub</a>
+              <a href="https://www.linkedin.com/in/polcayuela/" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 transition-colors cursor-pointer">LinkedIn</a>
               <ContactTrigger className="hover:text-zinc-900 transition-colors cursor-pointer">Email</ContactTrigger>
             </div>
           </div>
