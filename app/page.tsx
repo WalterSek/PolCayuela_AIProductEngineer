@@ -9,6 +9,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
 import { useRouter } from 'next/navigation';
 import { Project } from '@/data/projects';
+import { siteConfig } from '@/lib/site';
 
 function ProjectCard({ project }: { project: Project }) {
   const router = useRouter();
@@ -128,8 +129,35 @@ function ProjectCard({ project }: { project: Project }) {
 export default function Home() {
   const sortedProjects = [...projects].sort((a, b) => Number(b.featured) - Number(a.featured));
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Pol Cayuela',
+    jobTitle: 'AI Product Engineer',
+    description: siteConfig.description,
+    url: siteConfig.url,
+    sameAs: [
+      'https://github.com/waltersek',
+      'https://www.linkedin.com/in/polcayuela/',
+    ],
+    knowsAbout: [
+      'React',
+      'TypeScript',
+      'Gemini API',
+      'LiveKit',
+      'React Native',
+      'Next.js',
+      'Node.js',
+      'AI/ML',
+    ],
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
         <FadeIn>
           <div className="mb-8 max-w-5xl">

@@ -8,6 +8,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { FadeIn } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
+import { siteConfig } from '@/lib/site';
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -18,14 +19,38 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
-  
+
   if (!project) {
     return { title: 'Project Not Found' };
   }
 
+  const projectUrl = `${siteConfig.url}/projects/${project.slug}`;
+  const images = project.imageUrl
+    ? [{ url: project.imageUrl, alt: project.name }]
+    : undefined;
+
   return {
-    title: `${project.name} | AI Developer Portfolio`,
+    title: project.name,
     description: project.description,
+    alternates: {
+      canonical: projectUrl,
+    },
+    openGraph: {
+      title: `${project.name} | ${siteConfig.author}`,
+      description: project.description,
+      url: projectUrl,
+      siteName: siteConfig.name,
+      locale: 'en_US',
+      type: 'article',
+      images,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: project.name,
+      description: project.description,
+      creator: siteConfig.twitterHandle,
+      images,
+    },
   };
 }
 
