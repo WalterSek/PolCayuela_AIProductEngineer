@@ -166,7 +166,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           {/* Screenshot gallery - shown if project has screenshots */}
           {project.screenshots && project.screenshots.length > 0 && (
             <section className="mb-10">
-              <div className={`grid gap-3 ${project.screenshots.length <= 3 ? `grid-cols-${project.screenshots.length}` : 'grid-cols-5'}`}>
+              <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${Math.min(project.screenshots.length, 5)}, minmax(0, 1fr))` }}>
                 {project.screenshots.map((screenshot, index) => (
                   <div key={index} className="relative aspect-[1/2] overflow-hidden rounded-xl border border-zinc-200 shadow-sm bg-zinc-100">
                     <Image

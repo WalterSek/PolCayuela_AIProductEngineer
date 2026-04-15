@@ -9,7 +9,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
 import { DotGrid } from '@/components/dot-grid';
 import { useRouter } from 'next/navigation';
-import { Project } from '@/data/projects';
+import type { Project } from '@/data/types/project';
 import { siteConfig } from '@/lib/site';
 
 function ProjectCard({ project }: { project: Project }) {
@@ -55,7 +55,7 @@ function ProjectCard({ project }: { project: Project }) {
             <div className="mb-4 p-3 bg-zinc-50 rounded-lg border border-zinc-100">
               <p className="text-xs font-semibold text-zinc-900 mb-2">Production Features:</p>
               <ul className="space-y-1">
-                {project.productionFeatures.slice(0, 4).map((feature, idx) => (
+                {project.productionFeatures.slice(0, 4).map((feature: string, idx: number) => (
                   <li key={idx} className="flex items-start gap-2 text-xs text-zinc-600">
                     <CheckCircle className="w-3 h-3 mt-0.5 text-zinc-400 flex-shrink-0" />
                     {feature}
@@ -67,7 +67,7 @@ function ProjectCard({ project }: { project: Project }) {
           
           <div className="mt-auto">
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.stack.slice(0, 6).map(tech => (
+              {project.stack.slice(0, 6).map((tech: string) => (
                 <span key={tech} className="inline-flex items-center px-2 py-1 rounded-md bg-zinc-50 border border-zinc-200 text-xs font-medium text-zinc-600">
                   {tech}
                 </span>
