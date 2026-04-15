@@ -4,7 +4,7 @@ export const infinitevisuals: Project = {
   slug: "infinitevisuals",
   name: "InfiniteVisuals",
   tagline: "AI Brand Content Engine",
-  description: "An AI-powered brand content engine that generates consistent, high-quality visual assets for e-commerce and marketing teams. Create professional product photography, lifestyle scenes, and advertising creatives using multiple Gemini models without traditional photoshoots.",
+  description: "Multi-agent AI system that automates brand content creation from product analysis to final assets. Orchestrates 5 specialized agents using Google ADK to generate product photography, lifestyle scenes, and campaign creatives. Eliminates photoshoots with intelligent image generation workflows for e-commerce and marketing teams.",
   content: `## Overview
 
 InfiniteVisuals is an AI-powered visual content generation platform for e-commerce and marketing teams. It enables users to create professional product photography, lifestyle scenes, and advertising creatives using AI, eliminating the need for traditional photoshoots.

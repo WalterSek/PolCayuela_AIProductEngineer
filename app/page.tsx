@@ -223,7 +223,7 @@ export default function Home() {
       <main className="flex-1 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 pt-4 pb-12">
         <FadeIn delay={0.2} className="mb-12">
           <h2 className="font-display text-2xl font-bold text-zinc-900 mb-2">Selected Projects</h2>
-          <p className="text-zinc-500">A collection of my recent work in AI and software engineering.</p>
+          <p className="text-zinc-500">A collection of my recent SaaS products in AI and software engineering.</p>
         </FadeIn>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

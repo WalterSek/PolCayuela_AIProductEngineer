@@ -4,7 +4,7 @@ export const culinaria: Project = {
   slug: "culinaria",
   name: "Culinaria",
   tagline: "AI-Powered Cooking Companion",
-  description: "A mobile app that bridges the gap between discovering a recipe and actually cooking it. Built with React Native and Google Gemini's multimodal ecosystem, it extracts recipes from URLs or images, manages your pantry, and offers a hands-free voice assistant.",
+  description: "Voice-first cooking companion for mobile. Extract recipes from any URL, image, or cookbook photo using Gemini Vision, then cook hands-free with a real-time AI voice assistant. Features pantry management, smart shopping lists, and 13 custom voice tools for a seamless cooking experience.",
   content: `## Overview
 
 Culinaria is an AI-powered cooking companion that bridges the gap between discovering a recipe and actually cooking it. Built with **React Native** and **Google Gemini's multimodal ecosystem**, it extracts recipes from URLs or images, manages your pantry, and offers a hands-free voice assistant.
