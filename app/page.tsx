@@ -37,7 +37,7 @@ function ProjectCard({ project }: { project: Project }) {
             />
           </div>
         )}
-        <div className="p-6 flex-1 flex flex-col">
+        <div className="p-4 md:p-6 flex-1 flex flex-col">
           <div className="flex items-start justify-between mb-3">
             <span className="font-display text-xl font-bold text-zinc-900 group-hover:text-zinc-700 transition-colors">
               {project.name}
@@ -159,12 +159,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <header className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 pt-16 pb-8 md:pt-24 md:pb-12">
+      <header className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 pt-12 pb-8 md:pt-12 md:pb-12">
         <FadeIn>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16 mb-8">
             <div className="flex-1">
               <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-2">
-                Hi, I&apos;m Pol Cayuela. <br className="hidden md:block" />
+                Hi, I&apos;m Pol Cayuela. <br />
                 <span className="text-zinc-500">AI Product Engineer.</span>
               </h1>
               <p className="text-sm text-zinc-400 mb-4 flex items-center gap-1.5">
@@ -174,7 +174,7 @@ export default function Home() {
                 Building production-ready AI-native applications. I design and ship end-to-end full-stack products across web and mobile, integrating LLMs, real-time voice, image generation, and agentic workflows.
               </p>
             </div>
-            <div className="flex-shrink-0 order-first md:order-last flex-1 md:flex-none md:min-w-[320px] lg:min-w-[440px] xl:min-w-[520px] 2xl:min-w-[600px]">
+            <div className="hidden md:block flex-shrink-0 order-first md:order-last flex-1 md:flex-none md:min-w-[320px] lg:min-w-[440px] xl:min-w-[520px] 2xl:min-w-[600px]">
               <div className="h-40 md:h-56 lg:h-64 xl:h-72 2xl:h-80 rounded-2xl overflow-hidden bg-transparent">
                 <DotGrid />
               </div>
@@ -219,7 +219,7 @@ export default function Home() {
         </FadeIn>
       </header>
 
-      <main className="flex-1 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 pt-4 pb-12">
+      <main className="flex-1 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 pt-4 pb-12">
         <FadeIn delay={0.2} className="mb-12">
           <h2 className="font-display text-2xl font-bold text-zinc-900 mb-2">Selected Projects</h2>
           <p className="text-zinc-500">A collection of my recent work in AI and software engineering.</p>
@@ -233,7 +233,7 @@ export default function Home() {
       </main>
 
       <FadeIn delay={0.4}>
-        <footer className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-6 py-8 border-t border-zinc-200 mt-12">
+        <footer className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 py-8 border-t border-zinc-200 mt-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.
