@@ -89,8 +89,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 src={project.imageUrl}
                 alt={project.name}
                 fill
+                sizes="(max-width: 1280px) 100vw, 1280px"
                 unoptimized
-                loading="eager"
+                priority
                 className="object-cover"
               />
             </div>
@@ -173,6 +174,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                       src={screenshot.src}
                       alt={screenshot.alt}
                       fill
+                      sizes="(max-width: 768px) 50vw, 20vw"
                       loading="lazy"
                       className="object-contain"
                     />

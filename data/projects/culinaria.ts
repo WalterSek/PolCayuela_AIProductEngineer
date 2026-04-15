@@ -28,10 +28,11 @@ Culinaria is an AI-powered cooking companion that bridges the gap between discov
 |-----------|------------|---------|
 | **Mobile** | React Native 0.83.2 + Expo SDK 55 | iOS/Android app with file-based routing via Expo Router |
 | **Backend** | Node.js 22+ + Express 5 | REST API for AI operations, storage, user management |
-| **AI/Voice** | LiveKit Agents + Gemini API | Real-time voice chef assistant with RAG |
-| **Database** | Supabase (Postgres + RLS) | User data, recipes, usage tracking |
-| **Storage** | Cloudflare R2 | Image storage via Worker |
-| **Payments** | RevenueCat | In-app subscription management |
+| **AI/Voice** | LiveKit Agents + Gemini API | Real-time voice chef assistant with 13 custom tools |
+| **Database** | Supabase (Postgres + RLS) | User data, recipes, pantry, usage tracking |
+| **Storage** | Cloudflare R2 | Image storage via Cloudflare Worker |
+| **Payments** | RevenueCat | In-app subscription management (Free/Starter/Pro/Ultimate) |
+| **Deployment** | Cloud Run + Docker | Auto-scaling container deployment |
 
 ---
 
@@ -61,7 +62,9 @@ Culinaria is an AI-powered cooking companion that bridges the gap between discov
 
 ---
 
-### Monorepo Structure
+## Project Structure & Database
+
+### Project Structure
 
 \`\`\`
 c:\\CODING\\CookShelf\\
@@ -88,7 +91,7 @@ c:\\CODING\\CookShelf\\
 └── docs/plans/               # Architecture decision records
 \`\`\`
 
-### Database Schema (Supabase PostgreSQL with RLS):
+### Database Schema (Supabase PostgreSQL with RLS)
 
 \`\`\`
 ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
@@ -106,44 +109,9 @@ c:\\CODING\\CookShelf\\
 └─────────────────┘  └─────────────────┘  └─────────────────┘
 \`\`\`
 
-**Key Integrations:**
-- Gemini 3 Flash for recipe extraction from any URL or image
-- Gemini 3.1 Imagen for AI-generated step-by-step images
-- LiveKit Agents + Gemini 2.5 Flash Native Audio for real-time voice assistant
-- RevenueCat for mobile subscription management (Free, Starter, Pro, Ultimate tiers)
-- Supabase with Row Level Security for all user data
-- Cloudflare R2 for scalable image storage with signed URL security
-
-**Security & Middleware:**
-- Helmet.js for security headers, CORS, Compression middleware
-- Express-rate-limit for API protection
-- JWT verification via \`jose\` library
-- Environment variable separation (mobile: EXPO_PUBLIC_*, backend: standard)
-
-**AI/Voice Services:**
-- 13 custom Chef Tools in \`chef-agent-actions.service.ts\` (getRecipes, addToPantry, searchRecipes, etc.)
-- LiveKit agent with @livekit/agents-plugin-google for Gemini 2.5 Flash Native Audio
-- Separate agent-main.ts worker process for voice conversations
-- Webhook handlers for RevenueCat subscription events
-
-**Development Infrastructure:**
-- **Testing**: Vitest (backend), Jest (mobile) with comprehensive test coverage
-- **Build**: esbuild with externals configuration (@livekit/agents, @google/genai, sharp)
-- **CI/CD**: Docker + Google Cloud Build (cloudbuild.yaml) for automated deployment
-- **Code Quality**: ESLint + Prettier with strict TypeScript configuration
-- **API Contracts**: Shared Zod schemas in npm workspace package for type safety
-
-**Security Model:**
-- JWT-based authentication via Supabase
-- Row Level Security (RLS) on all database tables
-- Backend JWT verification middleware for protected routes
-- Environment variable separation (mobile: EXPO_PUBLIC_*, backend: standard)
-
 ---
 
 ## Deep Dive: System Architecture
-
-For those interested in the complete technical architecture, here are the detailed ASCII diagrams showing component relationships and service organization.
 
 ### High-Level Architecture
 
@@ -168,7 +136,7 @@ For those interested in the complete technical architecture, here are the detail
 │  │  UI Components   │                                                       │
 │  │  • Expo Router   │                                                       │
 │  │  • React Native  │                                                       │
-│  │  • ChefDiscovery │                                                       │
+│  │  • 80+ screens   │                                                       │
 │  └──────────────────┘                                                       │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -214,7 +182,7 @@ For those interested in the complete technical architecture, here are the detail
 │  ├── ai.base.service.ts        # Gemini API orchestration                  │
 │  ├── recipe.ai.service.ts      # Recipe extraction logic                   │
 │  ├── chef-agent-actions.ts     # 13 Chef Tools implementation              │
-│  │                             • getRecipes                                │
+│ │                             • getRecipes                                │
 │ │                             • addToPantry                               │
 │ │                             • searchRecipes                               │
 │ │                             • generateRecipe                              │
@@ -235,6 +203,35 @@ For those interested in the complete technical architecture, here are the detail
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 \`\`\`
+
+---
+
+## Key Technical Implementation Details
+
+**AI/Voice Services:**
+- 13 custom Chef Tools in \`chef-agent-actions.service.ts\` for voice interactions
+- LiveKit agent with @livekit/agents-plugin-google for Gemini 2.5 Flash Native Audio
+- Separate agent-main.ts worker process for voice conversations
+- Webhook handlers for RevenueCat subscription events
+
+**Security & Middleware:**
+- Helmet.js for security headers, CORS, Compression middleware
+- Express-rate-limit for API protection
+- JWT verification via \`jose\` library
+- Environment variable separation (mobile: EXPO_PUBLIC_*, backend: standard)
+
+**Development Infrastructure:**
+- **Testing**: Vitest (backend), Jest (mobile) with comprehensive test coverage
+- **Build**: esbuild with externals configuration (@livekit/agents, @google/genai, sharp)
+- **CI/CD**: Docker + Google Cloud Build (cloudbuild.yaml) for automated deployment
+- **Code Quality**: ESLint + Prettier with strict TypeScript configuration
+- **API Contracts**: Shared Zod schemas in npm workspace package for type safety
+
+**Security Model:**
+- JWT-based authentication via Supabase
+- Row Level Security (RLS) on all database tables
+- Backend JWT verification middleware for protected routes
+- Supabase Auth triggers for automatic profile creation
 `,
   stack: ["TypeScript", "React Native", "Expo", "Node.js", "Express", "Supabase Auth + DB", "Cloudflare R2", "Gemini API", "Gemini Live API", "LiveKit", "Cloud Run", "Docker", "RevenueCat", "TanStack Query", "Zustand", "Zod", "Vitest", "Jest"],
   highlights: [

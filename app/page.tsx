@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import type { Project } from '@/data/types/project';
 import { siteConfig } from '@/lib/site';
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, priority = false }: { project: Project; priority?: boolean }) {
   const router = useRouter();
 
   const handleCardClick = () => {
@@ -21,7 +21,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <StaggerItem className="h-full">
-      <div 
+      <div
         onClick={handleCardClick}
         className="group flex flex-col bg-white rounded-2xl border border-zinc-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 hover:border-zinc-300 h-full shadow-sm cursor-pointer"
       >
@@ -32,7 +32,8 @@ function ProjectCard({ project }: { project: Project }) {
               alt={project.name}
               fill
               unoptimized
-              loading="lazy"
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
               className="object-cover"
             />
           </div>
@@ -226,8 +227,8 @@ export default function Home() {
         </FadeIn>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {sortedProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+          {sortedProjects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} priority={index === 0} />
           ))}
         </StaggerContainer>
       </main>

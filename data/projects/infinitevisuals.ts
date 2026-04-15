@@ -63,9 +63,66 @@ Built with **Next.js 16** and **Google ADK**, it orchestrates multiple AI agents
 
 ---
 
-## Deep Dive: System Architecture
+## Project Structure & Database
 
-For those interested in the complete technical implementation, here are the detailed ASCII diagrams showing component relationships and agent workflows.
+### Project Structure
+
+\`\`\`
+C:\\CODING\\TheVisualEngine\\
+├── app/                     # Next.js App Router
+│   ├── (studio)/           # Main image editor
+│   ├── (gallery)/          # Asset gallery
+│   ├── (pricing)/          # Subscription plans
+│   └── api/                # API routes
+│       ├── agents/         # Google ADK agent workflows
+│       ├── generate/       # Image generation
+│       └── stripe/         # Payment webhooks
+├── components/             # React components
+├── services/               # Business logic
+│   ├── agents/            # ADK agents
+│   ├── gemini/            # Image generation services
+│   └── stripe/            # Billing
+├── lib/                    # Utilities
+├── store/                  # Zustand state
+├── types/                  # TypeScript types
+└── workers/               # Cloudflare Workers
+\`\`\`
+
+### Database Schema
+
+\`\`\`
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  brand_kits     │     │    credits      │     │    gallery      │
+├─────────────────┤     ├─────────────────┤     ├─────────────────┤
+│ id (uuid)       │     │ id (uuid)       │     │ id (uuid)       │
+│ user_id (fk)    │────►│ user_id (fk)    │◄────│ user_id (fk)    │
+│ name            │     │ balance         │     │ title           │
+│ logo_url        │     │ last_reset      │     │ image_url       │
+│ colors (json)   │     │ subscription_id │     │ style           │
+│ tone_of_voice   │     │ ─────────────  │     │ metadata        │
+│ ─────────────  │     │ RLS: user owns  │     │ ─────────────  │
+│ RLS: user owns  │     └─────────────────┘     │ RLS: user owns  │
+└─────────────────┘                             └─────────────────┘
+        │
+        │
+        ▼
+┌─────────────────┐     ┌─────────────────┐
+│  subscriptions  │     │ stripe_events   │
+├─────────────────┤     ├─────────────────┤
+│ id (uuid)       │     │ id (uuid)       │
+│ user_id (fk)    │     │ stripe_event_id │
+│ stripe_sub_id   │     │ event_type      │
+│ status          │     │ processed_at    │
+│ current_period  │     │ ─────────────  │
+│ cancel_at_period│     │ Unique constraint│
+│ ─────────────  │     │ (idempotency)   │
+│ RLS: user owns  │     └─────────────────┘
+└─────────────────┘
+\`\`\`
+
+---
+
+## Deep Dive: System Architecture
 
 ### High-Level Architecture
 
@@ -277,20 +334,17 @@ For those interested in the complete technical implementation, here are the deta
 └─────────────────┘
 \`\`\`
 
+---
+
+## Key Technical Implementation Details
+
 **AI Models Used:**
 - gemini-2.5-flash-image: Default image generation (fast, high quality)
 - gemini-3-pro-image-preview: High-fidelity generation (up to 4K resolution)
 - gemini-3.1-flash-image-preview: Nano Banana 2 - high-volume generation
 - gemini-flash-lite-latest: Product analysis, brand detection
-- gemini-3.1-flash-preview: Agent workflows (CreativeBrief, QC, Trends)
+- gemini-3.1-pro-preview: Agent workflows (CreativeBrief, QC, Trends)
 - gemini-2.5-flash: Prompt enhancement
-
-**Smart Suite Implementation:**
-- **Smart Edit**: Natural language image editing via \`image-editing.ts\`
-- **Smart Reframe**: Aspect ratio adaptation via \`image-manipulation.ts\`
-- **Smart Variations**: Multiple concept options via batch generation
-- **Smart Batch**: 2-4 outputs from single prompt
-- **AI Product Analysis**: \`product-analysis.ts\` with automatic categorization
 
 **Agent System (Google ADK):**
 
@@ -309,10 +363,10 @@ For those interested in the complete technical implementation, here are the deta
 - **Iterative QC**: LoopAgent with StopIfApproved pattern for quality validation
 - **SSE Streaming**: Real-time status updates during multi-phase generation
 
-**Testing & Quality:**
+**Development & Testing:**
 - Jest unit tests for services and utilities
 - Playwright E2E tests for critical user flows
-- Comprehensive Stripe webhook testing suite
+- Comprehensive Stripe webhook testing suite with idempotency
 - Type safety via generated Supabase types
 `,
   stack: ["TypeScript", "Next.js", "React", "Supabase Auth + DB", "Cloudflare R2", "Vercel", "Gemini API", "Google ADK", "Stripe", "Zustand", "TanStack Query", "Zod", "Jest", "Playwright", "Tailwind CSS", "Framer Motion"],

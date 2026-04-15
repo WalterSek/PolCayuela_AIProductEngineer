@@ -55,7 +55,9 @@ PxlMorph is an AI-powered image transformation application that allows users to 
 
 ---
 
-## Project Structure
+## Project Structure & Database
+
+### Project Structure
 
 \`\`\`
 src/
@@ -102,7 +104,7 @@ src/
     └── index.ts             # Style registry
 \`\`\`
 
-### Database Schema (Supabase PostgreSQL with RLS):
+### Database Schema (Supabase PostgreSQL with RLS)
 
 \`\`\`
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
@@ -130,33 +132,6 @@ src/
 │ idempotency key │     │ RLS: user owns  │
 └─────────────────┘     └─────────────────┘
 \`\`\`
-
-**Key Integrations:**
-- **OpenAI GPT-4o Image 1.5**: Style transfer with detail preservation (50+ curated styles)
-- **Cloudflare R2**: Scalable image storage with presigned URL security
-- **Cloudflare Workers**: Edge-based image processing and URL generation
-- **Stripe**: Checkout Sessions (backend-only), Customer Portal, webhook handling
-- **Supabase**: Auth with RLS, profiles, images, credits_ledger with triggers
-
-**AI Models Used:**
-- gpt-image-1.5: Style transfer & image transformation with detail preservation
-
-**Image Processing Pipeline:**
-- **Sharp**: Server-side image optimization and format conversion
-- **react-easy-crop**: Client-side image cropping UI with aspect ratio control
-- **Presigned URLs**: Cloudflare R2 secure direct uploads via r2-tokens.ts
-- **File Validation**: Security checks via file-validation.ts (5MB max, jpeg/png/webp, 256x256 to 4096x4096)
-
-**Credit System Implementation:**
-- Separate credits_ledger table from billing data (clean separation)
-- Stripe event idempotency with stripe_events table (unique constraint)
-- Real-time credit sync with optimistic UI updates (Zustand)
-- Soft paywall UX: gentle warning at 1 credit, hard paywall at 0
-
-**Rate Limiting & Security:**
-- **API Rate Limiting**: Token bucket via rate-limit.ts (10 tokens/user, 1/sec refill)
-- **Quota Management**: Credit tracking via quota.ts with balance validation
-- **Logger**: Structured logging via logger.ts for observability
 
 ---
 
@@ -386,26 +361,36 @@ For those interested in the complete technical implementation, here are the deta
 └─────────────────────────────────────────────────────────────────────────────┘
 \`\`\`
 
-**AI Models Used:**
-- gpt-image-1.5: Style transfer & image transformation
+---
 
-**Credit System Implementation:**
-- Separate credits_ledger table from billing data
-- Stripe event idempotency with stripe_events table
-- Real-time credit sync with optimistic UI updates
-- Soft paywall: gentle warning at 1 credit, hard paywall at 0
+## Key Technical Implementation Details
+
+**AI Models Used:**
+- gpt-image-1.5: Style transfer & image transformation with detail preservation (50+ curated styles)
 
 **Image Processing Pipeline:**
 - **Sharp**: Server-side image optimization and format conversion
-- **react-easy-crop**: Client-side image cropping UI
+- **react-easy-crop**: Client-side image cropping UI with aspect ratio control
 - **Presigned URLs**: Cloudflare R2 secure direct uploads via \`r2-tokens.ts\`
-- **File Validation**: Security checks via \`file-validation.ts\` (size, type, dimensions)
-- **Gallery Service**: Image history and metadata management
+- **File Validation**: Security checks via \`file-validation.ts\` (5MB max, jpeg/png/webp, 256x256 to 4096x4096)
+
+**Credit System Implementation:**
+- Separate credits_ledger table from billing data (clean separation)
+- Stripe event idempotency with stripe_events table (unique constraint)
+- Real-time credit sync with optimistic UI updates (Zustand)
+- Soft paywall UX: gentle warning at 1 credit, hard paywall at 0
 
 **Rate Limiting & Security:**
-- **API Rate Limiting**: Token bucket via \`rate-limit.ts\`
-- **Quota Management**: Credit tracking via \`quota.ts\`
-- **Logger**: Structured logging via \`logger.ts\`
+- **API Rate Limiting**: Token bucket via \`rate-limit.ts\` (10 tokens/user, 1/sec refill)
+- **Quota Management**: Credit tracking via \`quota.ts\` with balance validation
+- **Logger**: Structured logging via \`logger.ts\` for observability
+
+**Key Integrations:**
+- OpenAI GPT-4o Image 1.5: Style transfer with detail preservation
+- Cloudflare R2: Scalable image storage with presigned URL security
+- Cloudflare Workers: Edge-based image processing and URL generation
+- Stripe: Checkout Sessions (backend-only), Customer Portal, webhook handling
+- Supabase: Auth with RLS, profiles, images, credits_ledger with triggers
 `,
   stack: ["TypeScript", "Next.js", "React", "Supabase Auth + DB", "Cloudflare R2", "Cloudflare Workers", "Vercel", "OpenAI API", "Stripe", "Zustand", "TanStack Query", "Zod", "Sharp", "react-easy-crop", "Tailwind CSS"],
   highlights: [
@@ -419,7 +404,7 @@ For those interested in the complete technical implementation, here are the deta
   },
   imageUrl: "/pxlmorph-cover.jpg",
   status: "Beta",
-  featured: true,
+  featured: false,
   demoCredentials: {
     email: "demo@test.com",
     password: "password123"

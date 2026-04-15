@@ -1,8 +1,17 @@
 'use client';
 
-import { useState, ReactNode, useEffect } from 'react';
+import { useState, ReactNode, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+
+// Simple hook for delayed callbacks - avoids repetitive useEffect + setTimeout patterns
+function useTimedCallback(callback: () => void, delay: number, condition: boolean) {
+  useEffect(() => {
+    if (!condition) return;
+    const timer = setTimeout(callback, delay);
+    return () => clearTimeout(timer);
+  }, [callback, condition, delay]);
+}
 
 export function ContactTrigger({ children, className }: { children: ReactNode, className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,38 +30,17 @@ function ContactModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
-  // Handle success state: close modal after delay, then reset form
-  useEffect(() => {
-    if (status !== 'success') return;
+  // Consolidated timing logic using custom hook
+  const handleSuccessClose = useCallback(() => onClose(), [onClose]);
+  const handleFormReset = useCallback(() => {
+    setStatus('idle');
+    setFormData({ name: '', email: '', message: '' });
+  }, []);
+  const handleErrorReset = useCallback(() => setStatus('idle'), []);
 
-    const closeTimer = setTimeout(() => {
-      onClose();
-    }, 2000);
-
-    return () => clearTimeout(closeTimer);
-  }, [status, onClose]);
-
-  // Reset form when modal closes after success
-  useEffect(() => {
-    if (!isOpen && status === 'success') {
-      const resetTimer = setTimeout(() => {
-        setStatus('idle');
-        setFormData({ name: '', email: '', message: '' });
-      }, 300);
-      return () => clearTimeout(resetTimer);
-    }
-  }, [isOpen, status]);
-
-  // Handle error state: auto-reset after delay
-  useEffect(() => {
-    if (status !== 'error') return;
-
-    const errorTimer = setTimeout(() => {
-      setStatus('idle');
-    }, 3000);
-
-    return () => clearTimeout(errorTimer);
-  }, [status]);
+  useTimedCallback(handleSuccessClose, 2000, status === 'success');
+  useTimedCallback(handleFormReset, 300, !isOpen && status === 'success');
+  useTimedCallback(handleErrorReset, 3000, status === 'error');
 
   // Prevent body scroll when open
   useEffect(() => {

@@ -59,9 +59,51 @@ Kryptodash is an advanced cryptocurrency trading insights platform that combines
 
 ---
 
-## Deep Dive: System Architecture
+## Project Structure & Database
 
-For those interested in the complete technical implementation, here are the detailed ASCII diagrams showing component relationships and data flows.
+### Project Structure
+
+\`\`\`
+C:\\CODING\\CryptoDashboard\\
+├── app/                     # Next.js App Router
+│   ├── dashboard/          # Main dashboard
+│   ├── coin/[id]/         # Coin detail pages
+│   └── api/              # API routes
+├── components/           # React components
+│   ├── charts/          # TradingView charts
+│   ├── prices/          # Price displays
+│   └── ui/              # UI components
+├── hooks/                # Custom React hooks
+│   ├── useLivePrices.ts
+│   ├── useAnimatedPrice.ts
+│   └── useProAccess.ts
+├── lib/                  # Services & utilities
+│   ├── binance-service.ts
+│   ├── coingecko-service.ts
+│   └── stripe.ts
+├── stores/               # Zustand stores
+└── types/                # TypeScript types
+\`\`\`
+
+### Database Schema
+
+\`\`\`
+┌─────────────────┐     ┌─────────────────┐
+│   profiles      │     │   watchlists    │
+├─────────────────┤     ├─────────────────┤
+│ id (uuid, PK)   │     │ id (uuid, PK)   │
+│ email           │     │ user_id (fk)    │
+│ is_pro          │     │ coin_id         │
+│ pro_since       │     │ created_at      │
+│ plan            │     │ ─────────────  │
+│ ─────────────  │     │ RLS: user owns  │
+│ RLS: user owns  │     └─────────────────┘
+└─────────────────┘
+\`\`\`
+
+---
+
+## Deep Dive: System Architecture
 
 ### High-Level Architecture
 
@@ -308,9 +350,33 @@ For those interested in the complete technical implementation, here are the deta
 └─────────────────────────────────────────────────────────────────────────────┘
 \`\`\`
 
+---
+
+## Key Technical Implementation Details
+
 **AI Models Used:**
 - gemini-3.1-flash: Market analysis, insights, pattern detection
 - gemini-3.1-flash-lite-preview: Cost-efficient parsing
+
+**Real-Time Data Pipeline:**
+- WebSocket connection to Binance with exponential backoff reconnection
+- Custom hooks: useLivePrices.ts, useAnimatedPrice.ts for price change animations
+- Circuit breaker pattern: Open after 5 failures, half-open retry
+- Token bucket rate limiting: 10 requests per second refill
+
+**Multi-Source Data Strategy:**
+- Binance WebSocket/REST: Primary real-time price feeds
+- CoinGecko API: Market cap and aggregated data
+- altFINS API: Trading patterns and technical signals
+- Mobula API: Additional market data with CoinGecko fallback
+- CryptoCompare: Historical price data
+- TanStack Query: 60s cache TTL with background refetch
+
+**Freemium Access Control:**
+- Supabase RLS policies on all user data
+- is_pro flag with real-time subscription status
+- useProAccess() hook with local cache + Supabase sync
+- AI Analysis panel: Gated feature with upgrade CTA
 `,
   stack: ["TypeScript", "Next.js", "React", "Supabase Auth + DB", "Vercel", "Gemini API", "CoinGecko API", "TradingView", "altFINS API", "Binance API", "Zustand", "TanStack Query", "HeroUI", "Zod", "Stripe", "Jest", "Chart.js"],
   highlights: [
@@ -324,7 +390,7 @@ For those interested in the complete technical implementation, here are the deta
   },
   imageUrl: "/cryptoedge-cover.jpg",
   status: "Beta",
-  featured: false,
+  featured: true,
   demoCredentials: {
     email: "demo@test.com",
     password: "password123"
