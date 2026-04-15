@@ -3,7 +3,7 @@ import { projects } from '@/data/projects';
 import { siteConfig } from '@/lib/site';
 
 // Use static date to prevent unnecessary cache invalidation on rebuilds
-const LAST_MODIFIED = new Date('2025-01-01');
+const LAST_MODIFIED = new Date('2026-04-15');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
