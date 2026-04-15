@@ -174,8 +174,8 @@ export default function Home() {
                 Building production-ready AI-native applications. I design and ship end-to-end full-stack products across web and mobile, integrating LLMs, real-time voice, image generation, and agentic workflows.
               </p>
             </div>
-            <div className="flex-shrink-0 order-first md:order-last flex-1 md:flex-none md:min-w-[280px] lg:min-w-[360px] xl:min-w-[420px]">
-              <div className="h-32 md:h-48 lg:h-56 xl:h-64 rounded-2xl overflow-hidden bg-transparent">
+            <div className="flex-shrink-0 order-first md:order-last flex-1 md:flex-none md:min-w-[320px] lg:min-w-[440px] xl:min-w-[520px] 2xl:min-w-[600px]">
+              <div className="h-40 md:h-56 lg:h-64 xl:h-72 2xl:h-80 rounded-2xl overflow-hidden bg-transparent">
                 <DotGrid />
               </div>
             </div>

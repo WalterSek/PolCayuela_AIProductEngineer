@@ -31,7 +31,7 @@ export function DotGrid() {
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
 
-      // Create dot grid - dense
+      // Create dot grid - sleek spacing
       const spacing = 14;
       const cols = Math.ceil(rect.width / spacing);
       const rows = Math.ceil(rect.height / spacing);
@@ -42,7 +42,7 @@ export function DotGrid() {
           dotsRef.current.push({
             x: i * spacing + spacing / 2,
             y: j * spacing + spacing / 2,
-            baseAlpha: 0.15,
+            baseAlpha: 0.06,
             currentAlpha: 0.15,
             scale: 1,
           });
@@ -58,6 +58,15 @@ export function DotGrid() {
       };
     };
 
+    const handleMouseMoveGlobal = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      // Store relative position even outside canvas for pre-fade calculation
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    };
+
     const handleMouseLeave = () => {
       mouseRef.current = { x: -1000, y: -1000 };
     };
@@ -67,26 +76,52 @@ export function DotGrid() {
       ctx.clearRect(0, 0, rect.width, rect.height);
 
       const mouse = mouseRef.current;
-      const radius = 80; // Interaction radius
+      const radius = 80; // Tighter interaction radius
+      const preFadeRadius = 60; // Distance outside canvas where effect starts
 
       dotsRef.current.forEach((dot) => {
         const dx = mouse.x - dot.x;
         const dy = mouse.y - dot.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        // Calculate proximity effect
+        // Calculate edge fade (only affects base, not hover)
+        const edgeFade = 100;
+        const edgeFactorX = Math.min(dot.x, rect.width - dot.x) / edgeFade;
+        const edgeFactorY = Math.min(dot.y, rect.height - dot.y) / edgeFade;
+        const edgeFactor = Math.max(0, Math.min(1, Math.min(edgeFactorX, edgeFactorY)));
+
+        // Calculate proximity effect with edge fade applied to hover too
+        let targetAlpha = dot.baseAlpha * edgeFactor;
+        let targetScale = 1;
+
+        // Calculate pre-fade factor (for mouse approaching from outside)
+        let preFadeFactor = 1;
+        if (mouse.x < -preFadeRadius || mouse.x > rect.width + preFadeRadius ||
+            mouse.y < -preFadeRadius || mouse.y > rect.height + preFadeRadius) {
+          preFadeFactor = 0;
+        } else {
+          // Distance from nearest canvas edge
+          const distFromEdgeX = Math.min(mouse.x + preFadeRadius, rect.width + preFadeRadius - mouse.x);
+          const distFromEdgeY = Math.min(mouse.y + preFadeRadius, rect.height + preFadeRadius - mouse.y);
+          const distFromCanvas = Math.min(distFromEdgeX, distFromEdgeY);
+          preFadeFactor = Math.max(0, Math.min(1, distFromEdgeX / preFadeRadius, distFromEdgeY / preFadeRadius));
+        }
+
         if (distance < radius) {
           const factor = 1 - distance / radius;
-          dot.currentAlpha = dot.baseAlpha + factor * 0.4;
-          dot.scale = 1 + factor * 1.5;
-        } else {
-          dot.currentAlpha += (dot.baseAlpha - dot.currentAlpha) * 0.1;
-          dot.scale += (1 - dot.scale) * 0.1;
+          // Stronger edge fade on hover - use power for more aggressive fade
+          const hoverEdgeFactor = Math.pow(edgeFactor, 0.4);
+          targetAlpha = dot.baseAlpha * edgeFactor + factor * 0.3 * hoverEdgeFactor * preFadeFactor;
+          targetScale = 1 + Math.pow(factor, 0.8) * 1.2 * hoverEdgeFactor * preFadeFactor;
         }
+
+        // Smooth transitions
+        dot.currentAlpha += (targetAlpha - dot.currentAlpha) * 0.15;
+        dot.scale += (targetScale - dot.scale) * 0.15;
 
         // Draw dot
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, 1.2 * dot.scale, 0, Math.PI * 2);
+        ctx.arc(dot.x, dot.y, 0.8 * dot.scale, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(100, 100, 100, ${dot.currentAlpha})`;
         ctx.fill();
       });
@@ -98,12 +133,12 @@ export function DotGrid() {
     animate();
 
     window.addEventListener('resize', resizeCanvas);
-    canvas.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMoveGlobal);
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      canvas.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', handleMouseMoveGlobal);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
       cancelAnimationFrame(animationRef.current);
     };
@@ -118,12 +153,9 @@ export function DotGrid() {
     >
       <canvas
         ref={canvasRef}
-        className="w-full h-full cursor-crosshair"
+        className="w-full h-full"
         style={{ display: 'block' }}
       />
-      {/* Edge fade masks for seamless blend */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-zinc-50/80 via-transparent to-zinc-50/80" />
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-zinc-50/60 via-transparent to-zinc-50/60" />
     </motion.div>
   );
 }
