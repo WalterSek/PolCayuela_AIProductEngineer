@@ -182,7 +182,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 mb-12 max-w-5xl">
+          <div className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:gap-4 mb-12 max-w-5xl">
             <a href="https://github.com/waltersek" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg hover:bg-zinc-800 transition-colors text-sm font-medium cursor-pointer">
               <Github className="w-4 h-4" />
               GitHub
