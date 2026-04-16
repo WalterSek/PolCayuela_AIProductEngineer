@@ -4,7 +4,7 @@ export const kryptodash: Project = {
   slug: "kryptodash",
   name: "Kryptodash",
   tagline: "AI-Powered Crypto Trading Insights",
-  description: "Real-time crypto trading dashboard with live Binance price feeds, TradingView charting, and altFINS technical pattern signals. Uses Gemini 3.1 Flash Lite for efficient data parsing into structured insights. Features personalized watchlists, visual price change indicators, and freemium subscription tiers for active traders.",
+  description: "Real-time crypto market insights dashboard with live Binance price feeds, TradingView charting, and altFINS technical pattern signals. Uses Gemini 3.1 Flash Lite for efficient data parsing into structured insights. Features personalized watchlists, in-depth AI agent market analysis, and freemium subscription tiers for active traders.",
   content: `## Overview
 
 Kryptodash is an advanced cryptocurrency trading insights platform that combines real-time market data with AI-powered technical analysis. Built with **Next.js 16**, it integrates multiple data sources and WebSocket streams to help traders spot better opportunities.

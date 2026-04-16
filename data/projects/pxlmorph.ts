@@ -3,8 +3,8 @@ import { Project } from "@/data/types/project";
 export const pxlmorph: Project = {
   slug: "pxlmorph",
   name: "PxlMorph",
-  tagline: "AI Image Style Transfer & Editor",
-  description: "AI-powered style transfer app that transforms your photos into 50+ curated artistic styles. Upload any image and apply styles ranging from Studio Ghibli and oil painting to cyberpunk and cinematic looks. Built-in cropping, gallery management, and a freemium credit system for creators.",
+  tagline: "AI Image Style Transfer",
+  description: "AI-powered style transfer app that transforms your photos into 50+ curated artistic styles. Upload any image and apply styles ranging from Studio Ghibli and oil painting to cyberpunk and cinematic looks. Gallery management and a freemium credit system for creators.",
   content: `## Overview
 
 PxlMorph is an AI-powered image transformation application that allows users to apply over 50 artistic styles to their photos. Built with **Next.js 16** and **TypeScript**, it leverages OpenAI's GPT-4o Image 1.5 API for high-fidelity style transfer with detail preservation.
