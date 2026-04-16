@@ -9,6 +9,7 @@ import remarkGfm from 'remark-gfm';
 import { FadeIn } from '@/components/animations';
 import { ContactTrigger } from '@/components/contact';
 import { siteConfig } from '@/lib/site';
+import { DotGrid } from '@/components/dot-grid';
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
@@ -63,9 +64,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-50">
+    <div className="min-h-screen flex flex-col relative">
+      <div className="fixed inset-0 z-0">
+        <DotGrid />
+      </div>
       <FadeIn>
-        <header className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8">
+        <header className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6 py-8">
           <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors mb-8 cursor-pointer">
             <ArrowLeft className="w-4 h-4" />
             Back to projects
@@ -161,7 +165,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </header>
       </FadeIn>
 
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 md:px-6">
+      <main className="relative z-10 flex-1 w-full max-w-5xl mx-auto px-4 md:px-6">
         <FadeIn delay={0.1}>
           
           {/* Screenshot gallery - shown if project has screenshots */}
@@ -225,7 +229,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       </main>
 
       <FadeIn delay={0.2} className="mt-auto">
-        <footer className="w-full max-w-5xl mx-auto px-4 md:px-6 py-8">
+        <footer className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between border-t border-zinc-200 pt-8 gap-4">
             <p className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.

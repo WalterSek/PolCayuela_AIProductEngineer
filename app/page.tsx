@@ -155,12 +155,15 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      <div className="fixed inset-0 z-0">
+        <DotGrid />
+      </div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <header className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 pt-12 pb-8 md:pt-12 md:pb-12">
+      <header className="relative z-10 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 pt-12 pb-8 md:pt-12 md:pb-12">
         <FadeIn>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-16 mb-8">
             <div className="flex-1">
@@ -174,11 +177,6 @@ export default function Home() {
               <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-5xl">
                 Building production-ready AI-native applications. I design and ship end-to-end full-stack products across web and mobile, integrating LLMs, real-time voice, image generation, and agentic workflows.
               </p>
-            </div>
-            <div className="hidden md:block flex-shrink-0 order-first md:order-last flex-1 md:flex-none md:min-w-[320px] lg:min-w-[440px] xl:min-w-[520px] 2xl:min-w-[600px]">
-              <div className="h-40 md:h-56 lg:h-64 xl:h-72 2xl:h-80 rounded-2xl overflow-hidden bg-transparent">
-                <DotGrid />
-              </div>
             </div>
           </div>
 
@@ -220,7 +218,7 @@ export default function Home() {
         </FadeIn>
       </header>
 
-      <main className="flex-1 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 pt-4 pb-12">
+      <main className="relative z-10 flex-1 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 pt-4 pb-12">
         <FadeIn delay={0.2} className="mb-12">
           <h2 className="font-display text-2xl font-bold text-zinc-900 mb-2">Selected Projects</h2>
           <p className="text-zinc-500">A collection of my recent SaaS products in AI and software engineering.</p>
@@ -234,7 +232,7 @@ export default function Home() {
       </main>
 
       <FadeIn delay={0.4}>
-        <footer className="w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 py-8 border-t border-zinc-200 mt-12">
+        <footer className="relative z-10 w-full max-w-7xl lg:max-w-[1400px] xl:max-w-[1600px] 2xl:max-w-[1800px] 3xl:max-w-[1920px] mx-auto px-4 md:px-6 py-8 border-t border-zinc-200 mt-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-zinc-500">
               © {new Date().getFullYear()} Pol Cayuela. All rights reserved.

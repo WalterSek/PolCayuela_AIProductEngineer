@@ -112,7 +112,8 @@ export function DotGrid() {
           // Stronger edge fade on hover - use power for more aggressive fade
           const hoverEdgeFactor = Math.pow(edgeFactor, 0.4);
           targetAlpha = dot.baseAlpha * edgeFactor + factor * 0.3 * hoverEdgeFactor * preFadeFactor;
-          targetScale = 1 + Math.pow(factor, 0.8) * 1.2 * hoverEdgeFactor * preFadeFactor;
+          // Smoother, bigger scale at center - cubic curve for smooth peak
+          targetScale = 1 + Math.pow(factor, 2.5) * 2.5 * hoverEdgeFactor * preFadeFactor;
         }
 
         // Smooth transitions
