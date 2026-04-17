@@ -49,6 +49,7 @@ export const skillCategories: SkillCategory[] = [
       'Python',
       'Supabase (Auth, PostgreSQL)',
       'GCP / Cloud Run',
+      'Vercel',
       'R2 Storage',
       'Docker',
       'REST APIs',
